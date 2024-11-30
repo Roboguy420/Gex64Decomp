@@ -1,0 +1,11 @@
+*.z64
+*.elf
+*.ld
+*.d
+*.map
+.vscode/
+asm/
+assets/
+build/
+undefined_funcs_auto.txt
+undefined_syms_auto.txt

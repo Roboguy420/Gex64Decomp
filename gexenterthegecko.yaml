@@ -1,0 +1,3593 @@
+name: "Gex: Enter The Gecko (North America)"
+sha1: 16042cd0dfa5439ca436f1bf05ebfb7e9f730cda
+options:
+  basename: gexenterthegecko
+  target_path: gex64.z64
+  elf_path: build/gexenterthegecko.elf
+  base_path: .
+  platform: n64
+  compiler: KMC
+
+  # asm_path: asm
+  # src_path: src
+  # build_path: build
+  # create_asm_dependencies: True
+
+  ld_script_path: gexenterthegecko.ld
+  ld_dependencies: True
+
+  find_file_boundaries: True
+  header_encoding: ASCII
+
+  o_as_suffix: True
+  use_legacy_include_asm: False
+  mips_abi_float_regs: o32
+
+  asm_function_macro: glabel
+  asm_jtbl_label_macro: jlabel
+  asm_data_macro: dlabel
+
+  # section_order: [".text", ".data", ".rodata", ".bss"]
+  # auto_link_sections: [".data", ".rodata", ".bss"]
+
+  symbol_addrs_path:
+    - symbol_addrs.txt
+  reloc_addrs_path:
+    - reloc_addrs.txt
+
+  # undefined_funcs_auto_path: undefined_funcs_auto.txt
+  # undefined_syms_auto_path: undefined_syms_auto.txt
+
+  extensions_path: tools/splat_ext
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+  # libultra_symbols: True
+  # hardware_regs: True
+  gfx_ucode: f3dex # one of [f3d, f3db, f3dex, f3dexb, f3dex2]
+segments:
+  - name: header
+    type: header
+    start: 0x0
+
+  - name: boot
+    type: databin
+    start: 0x40
+
+  - name: entry
+    type: code
+    start: 0x1000
+    vram: 0x80000400
+    subsegments:
+      - [0x1000, hasm]
+
+  - name: main
+    type: code
+    start: 0x1050
+    vram: 0x80000450
+    follows_vram: entry
+    bss_size: 0xDA3E0
+    subsegments:
+      - [0x1050, asm, _1050]
+      - [0x7FB0, asm, _7fb0]
+      - [0xBE60, asm, _be60]
+      - [0xD6F0, asm]
+      - [0xDC40, asm]
+      - [0xF3D0, asm]
+      - [0xFCB0, asm]
+      - [0x103F0, asm]
+      - [0x10640, asm]
+      - [0x10F50, asm]
+      - [0x12720, asm]
+      - [0x12D70, asm]
+      - [0x161C0, asm]
+      - [0x19BD0, asm]
+      - [0x1A6A0, asm, _1a6a0]
+      - [0x1B8A0, asm, _1ba60]
+      - [0x1BA60, asm]
+      - [0x1F5F0, asm]
+      - [0x23DE0, asm, _23de0]
+      - [0x24CF0, asm, _24cf0]
+      - [0x287A0, asm, _287a0]
+      - [0x2BA70, asm]
+      - [0x2C440, asm]
+      - [0x2CD50, asm, _2cd50]
+      - [0x2D6E0, asm]
+      - [0x2F310, asm]
+      - [0x30630, asm]
+      - [0x30C90, asm]
+      - [0x30E70, asm]
+      - [0x31960, asm, _31960]
+      - [0x32D70, asm]
+      - [0x345E0, asm]
+      - [0x368B0, asm]
+      - [0x3AF50, asm]
+      - [0x3BAA0, asm]
+      - [0x3C190, asm]
+      - [0x3D2B0, asm]
+      - [0x3EAA0, asm]
+      - [0x405D0, asm]
+      - [0x40D70, asm, _40d70]
+      - [0x42BD0, asm]
+      - [0x4FC20, asm]
+      - [0x52EE0, asm]
+      - [0x56790, asm, _56790]
+      - [0x579B0, asm, _579b0]
+      - [0x57CE0, asm]
+      - [0x57D60, asm]
+      - [0x57D90, asm]
+      - [0x57DC0, asm]
+      - [0x581C0, asm]
+      - [0x582F0, asm]
+      - [0x58480, asm]
+      - [0x58550, asm]
+      - [0x58670, asm]
+      - [0x586B0, asm]
+      - [0x58710, asm]
+      - [0x587C0, asm]
+      - [0x58800, asm]
+      - [0x58850, asm, _58850]
+      - [0x58E90, asm]
+      - [0x58EA0, asm]
+      - [0x59150, asm]
+      - [0x591F0, asm]
+      - [0x59340, asm]
+      - [0x59500, asm, _59500]
+      - [0x59640, asm]
+      - [0x596E0, asm]
+      - [0x59850, asm]
+      - [0x598A0, asm]
+      - [0x598F0, asm]
+      - [0x59AD0, asm]
+      - [0x59DE0, asm]
+      - [0x5A8D0, asm]
+      - [0x5AF40, asm]
+      - [0x5B4B0, asm]
+      - [0x5B670, asm]
+      - [0x5C0B0, asm]
+      - [0x5C3B0, asm]
+      - [0x5C580, asm]
+      - [0x5C620, asm]
+      - [0x5C700, asm]
+      - [0x5C800, asm, _5c800]
+      - [0x5CBC0, asm]
+      - [0x5CCB0, asm]
+      - [0x5CD60, asm]
+      - [0x5CE90, asm]
+      - [0x5CF20, asm, _5cf20]
+      - [0x5D9C0, asm, _5d9c0]
+      - [0x5DB10, asm, _5db10]
+      - [0x5E8F0, asm]
+      - [0x5E900, asm]
+      - [0x5E940, asm]
+      - [0x5EA00, asm]
+      - [0x5EB20, asm]
+      - [0x5EBF0, asm]
+      - [0x5EC10, asm]
+      - [0x5ECA0, asm]
+      - [0x5EDE0, asm]
+      - [0x5F0A0, asm]
+      - [0x5F0F0, asm]
+      - [0x5F1D0, asm]
+      - [0x5F5C0, asm]
+      - [0x5F640, asm]
+      - [0x5F860, asm]
+      - [0x5F930, asm, _5f930]
+      - [0x60160, asm]
+      - [0x60C70, asm]
+      - [0x60D80, asm, _60d80]
+      - [0x61A50, asm, _61a50]
+      - [0x61E70, asm, _61e70]
+      - [0x62A10, asm]
+      - [0x62B20, asm]
+      - [0x62B40, asm]
+      - [0x62BE0, asm]
+      - [0x62E20, asm]
+      - [0x62E40, asm]
+      - [0x62E90, asm]
+      - [0x62FA0, asm]
+      - [0x62FE0, asm]
+      - [0x63020, asm]
+      - [0x633B0, asm]
+      - [0x63400, asm]
+      - [0x63450, asm, _63450]
+      - [0x63740, asm]
+      - [0x637A0, asm]
+      - [0x637C0, asm]
+      - [0x63860, asm]
+      - [0x63950, asm]
+      - [0x63A00, asm]
+      - [0x63DD0, asm]
+      - [0x64C20, asm]
+      - [0x65330, asm]
+      - [0x65610, asm]
+      - [0x65850, asm]
+      - [0x659A0, asm]
+      - [0x661E0, asm]
+      - [0x66500, asm, _66500]
+      - [0x66F30, asm]
+      - [0x66F40, asm]
+      - [0x66F50, asm]
+      - [0x66F60, asm]
+      - [0x66F80, asm]
+      - [0x66FA0, asm]
+      - [0x67080, asm]
+      - [0x67090, asm]
+      - [0x67890, asm]
+      - [0x679E0, asm]
+      - [0x684A0, asm]
+      - [0x68D70, asm]
+      - [0x69110, asm]
+      - [0x69360, asm, _69360]
+      - [0x69DE0, asm]
+      - [0x69DF0, asm]
+      - [0x69EB0, asm]
+      - [0x69F00, asm]
+      - [0x69F50, asm, _69f50]
+      - [0x6A990, asm]
+      - [0x6AB50, asm]
+      - [0x6AC20, asm, _6ac20]
+      - [0x6B0D0, asm]
+      - [0x6B300, asm]
+      - [0x6B470, asm]
+      - [0x6B490, asm]
+      - [0x6B5F0, asm]
+      - [0x6B6F0, asm]
+      - [0x6B920, data]
+      - [0x7C040, rodata, _1050]
+      - [0x7C3B0, rodata, _7fb0]
+      - [0x7C4F0, rodata, _be60]
+      - [0x7C8F0, rodata, _1a6a0]
+      - [0x7C9E0, rodata, _24cf0]
+      - [0x7CA40, rodata, _287a0]
+      - [0x7CAC0, rodata, _2cd50]
+      - [0x7CAE0, rodata, _31960]
+      - [0x7EF80, rodata, _40d70]
+      - [0x7F320, rodata, _47260]
+      - [0x7F820, rodata, _56790]
+      - [0x7F8C0, rodata, _58850]
+      - [0x7F8E0, rodata, _59500]
+      - [0x7F8F0, rodata, _5c800]
+      - [0x7F910, rodata, _5cf20]
+      - [0x7F930, rodata, _5d9c0]
+      - [0x7F9A0, rodata, _5db10]
+      - [0x7FA10, rodata, _5f930]
+      - [0x7FAD0, rodata, _60d80]
+      - [0x7FBC0, rodata, _61a50]
+      - [0x7FBF0, rodata, _61e70]
+      - [0x7FC40, rodata, _63450]
+      - [0x7FC50, rodata, _66500]
+      - [0x7FDE0, rodata, _69360]
+      - [0x7FE50, rodata, _69f50]
+      - [0x7FEB0, rodata, _6ac20]
+      - { type: bss, vram: 0x8007F340 }
+
+  - name: aztec_code
+    type: databin # code
+    start: 0x7FF40
+    #vram: 0x80159720
+    #bss_size: 0x80720
+    #subsegments:
+    #  - [0x7FF40, asm, _7ff40]
+    #  - [0x808B0, rodata, _7ff40]
+    #  - { type: bss, vram: 0x8015A0E0 }
+
+  - name: circuit_code
+    type: databin # code
+    start: 0x80900
+    #vram: 0x80159720
+    #bss_size: 0x77120
+    #subsegments:
+    #  - [0x80900, asm, _80900]
+    #  - [0x8A780, rodata, _80900]
+    #  - { type: bss, vram: 0x801636E0 }
+
+  - name: final_code
+    type: databin # code
+    start: 0x8A8C0
+    #vram: 0x80159720
+    #bss_size: 0x78FA0
+    #subsegments:
+    #  - [0x8A8C0, asm, _8a8c0]
+    #  - [0x926B0, rodata, _8a8c0]
+    #  - { type: bss, vram: 0x80161860 }
+
+  - name: gexzil_code
+    type: databin # code
+    start: 0x928A0
+    #vram: 0x80159720
+    #bss_size: 0x77C70
+    #subsegments:
+    #  - [0x928A0, asm, _928a0]
+    #  - [0x9BC10, rodata, _928a0]
+    #  - { type: bss, vram: 0x80162B90 }
+
+  - name: gillig_code
+    type: databin # code
+    start: 0x9BD00
+    #vram: 0x80159720
+    #bss_size: 0x7FE90
+    #subsegments:
+    #  - [0x9BD00, asm, _9bd00]
+    #  - [0x9CF00, rodata, _9bd00]
+    #  - { type: bss, 0x8015A970 }
+
+  - name: horror_code
+    type: databin # code
+    start: 0x9CF50
+    #vram: 0x80159720
+    #bss_size: 0x75AE0
+    #subsegments:
+    #  - [0x9CF50, asm, _9cf50]
+    #  - [0xA8464, rodata, _9cf50]
+    #  - { type: bss, 0x80164D20 }
+
+  - name: intro_code
+    type: databin # code
+    start: 0xA8550
+    #vram: 0x80159720
+    #bss_size: 0x80CF0
+    #subsegments:
+    #  - [0xA8550, asm, _a8550]
+    #  - [0xA8930, rodata, _a8550]
+    #  - { type: bss, vram: 0x80159B10 }
+
+  - name: kungfu_code
+    type: databin # code
+    start: 0xA8940
+    #vram: 0x80159720
+    #bss_size: 0x78050
+    #subsegments:
+    #  - [0xA8940, asm, _a8940]
+    #  - [0xB18E0, rodata, _a8940]
+    #  - { type: bss, vram: 0x801627B0 }
+
+  - name: looney_code
+    type: databin # code
+    start: 0xB19D0
+    #vram: 0x80159720
+    #bss_size: 0x78960
+    #subsegments:
+    #  - [0xB19D0, asm, _b19d0]
+    #  - [0xB9E80, rodata, _b19d0]
+    #  - { type: bss, vram: 0x80161EA0 }
+
+  - name: map_code
+    type: databin # code
+    start: 0xBA150
+    #vram: 0x80159720
+    #bss_size: 0x79170
+    #subsegments:
+    #  - [0xBA150, asm, _c1e50]
+    #  - [0xC1B60, rodata, _c1e50]
+    #  - { type: bss, vram: 0x80161690 }
+
+  - name: mooshu_code
+    type: databin # code
+    start: 0xC20A0
+    #vram: 0x80159720
+    #bss_size: 0x7C980
+    #subsegments:
+    #  - [0xC20A0, asm, _c20a0]
+    #  - [0xC6760, rodata, _c20a0]
+    #  - { type: bss, vram: 0x8015DE80 }
+
+  - name: nypd_code
+    type: databin # code
+    start: 0xC6800
+    #vram: 0x80159720
+    #bss_size: 0x80940
+    #subsegments:
+    #  - [0xC6800, asm, _c6800]
+    #  - [0xC6F50, rodata, _c6800]
+    #  - { type: bss, vram: 0x80159EC0 }
+
+  - name: prehst_code
+    type: databin # code
+    start: 0xC6FA0
+    #vram: 0x80159720
+    #bss_size: 0x761F0
+    #subsegments:
+    #  - [0xC6FA0, asm, _c6fa0]
+    #  - [0xD1D10, rodata, _c6fa0]
+    #  - { type: bss, vram: 0x80164610 }
+
+  - name: rezop_code
+    type: databin # code
+    start: 0xD1E90
+    #vram: 0x80159720
+    #bss_size: 0x791E0
+    #subsegments:
+    #  - [0xD1E90, asm, _d1e90]
+    #  - [0xD9CA0, rodata, _d1e90]
+    #  - { type: bss, vram: 0x80161620 }
+
+  - name: rta_code
+    type: databin # code
+    start: 0xD9D90
+    #vram: 0x80159720
+    #bss_size: 0x7B8E0
+    #subsegments:
+    #  - [0xD9D90, asm, _d9d90]
+    #  - [0xDF380, rodata, _d9d90]
+    #  - { type: bss, vram: 0x8015EF20 }
+
+  - name: scifi_code
+    type: databin # code
+    start: 0xDF540
+    #vram: 0x80159720
+    #bss_size: 0x75830
+    #subsegments:
+    #  - [0xDF540, asm, _df540]
+    #  - [0xEAC10, rodata, _df540]
+    #  - { type: bss, 0x80164FD0 }
+
+  - name: spy_code
+    type: databin # code
+    start: 0xEADF0
+    #vram: 0x80159720
+    #bss_size: 0x7F9A0
+    #subsegments:
+    #  - [0xEADF0, asm, _eadf0]
+    #  - [0xEC440, rodata, _eadf0]
+    #  - { type: bss, 0x8015AE60 }
+
+  - name: logo_code
+    type: databin # code
+    start: 0xEC530
+    #vram: 0x80159720 
+    #bss_size: 0x80520
+    #subsegments:
+    #  - [0xEC530, asm, _ec530]
+    #  - [0xECE80, rodata, _ec530]
+    #  - { type: bss, 0x8015A2E0 }
+
+  - name: extra_functions
+    type: code
+    start: 0xED0F0
+    vram: 0x801DA800
+    #follows_vram: logo_code
+    subsegments:
+      - [0xED0F0, asm, _ed0f0]
+      - [0xEEE40, rodata, _ed0f0]
+
+  - name: n64_ptr_tables_v2_1
+    type: databin
+    start: 0xEF120
+
+  - name: n64_wavetables_1
+    type: databin
+    start: 0x102A90
+
+  - name: n64_wavetables_2
+    type: databin
+    start: 0x386450
+
+  - name: n64_ptr_tables_v2_2
+    type: databin
+    start: 0x3E7060
+
+  - name: n64_wavetables_3
+    type: databin
+    start: 0x3EC2A0
+
+  - name: n64_ptr_tables_v2_3
+    type: databin
+    start: 0x401250
+
+  - name: n64_wavetables_4
+    type: databin
+    start: 0x4066F0
+
+  - name: n64_ptr_tables_v2_4
+    type: databin
+    start: 0x41AC70
+
+  - name: n64_wavetables_5
+    type: databin
+    start: 0x41CE00
+
+  - name: n64_ptr_tables_v2_5
+    type: databin
+    start: 0x4382E0
+
+  - name: n64_wavetables_6
+    type: databin
+    start: 0x43B180
+
+  - name: n64_ptr_tables_v2_6
+    type: databin
+    start: 0x456C70
+
+  - name: n64_wavetables_7
+    type: databin
+    start: 0x45DC50
+
+  - name: n64_ptr_tables_v2_7
+    type: databin
+    start: 0x4795F0
+
+  - name: n64_wavetables_8
+    type: databin
+    start: 0x47CCB0
+
+  - name: n64_ptr_tables_v2_8
+    type: databin
+    start: 0x490000
+
+  - name: n64_wavetables_9
+    type: databin
+    start: 0x4958F0
+
+  - name: n64_ptr_tables_v2_9
+    type: databin
+    start: 0x4973A0
+    
+  # Levels
+  - name: aztec16.level
+    type: databin
+    start: 0x4B5750
+
+  - name: circuit0.level
+    type: databin
+    start: 0x4F0E50
+
+  - name: circuit5.level
+    type: databin
+    start: 0x519D80
+
+  - name: circuit9.level
+    type: databin
+    start: 0x57AC60
+
+  - name: final01.level
+    type: databin
+    start: 0x5E3BD0
+    
+  - name: gexzil9.level
+    type: databin
+    start: 0x605AF0
+
+  - name: gillig1.level
+    type: databin
+    start: 0x616BE0
+
+  - name: horror2.level
+    type: databin
+    start: 0x625A90
+
+  - name: horror4.level
+    type: databin
+    start: 0x687F10
+
+  - name: horror6.level
+    type: databin
+    start: 0x6EA110
+
+  - name: intro1.level
+    type: databin
+    start: 0x705E40
+
+  - name: kungfu1.level
+    type: databin
+    start: 0x7067C0
+
+  - name: kungfu02.level
+    type: databin
+    start: 0x764E80
+
+  - name: kungfu4.level
+    type: databin
+    start: 0x7C0CD0
+
+  - name: logo1.level
+    type: databin
+    start: 0x7E5F00
+
+  - name: logo2.level
+    type: databin
+    start: 0x7E6870
+
+  - name: logo3.level
+    type: databin
+    start: 0x7E7140
+
+  - name: logo4.level
+    type: databin
+    start: 0x7E72A0
+
+  - name: looney30.level
+    type: databin
+    start: 0x7E7B80
+
+  - name: looney69.level
+    type: databin
+    start: 0x85C2C0
+
+  - name: map5.level
+    type: databin
+    start: 0x8C1700
+
+  - name: mooshu1.level
+    type: databin
+    start: 0x932610
+
+  - name: nypd01.level
+    type: databin
+    start: 0x93ED90
+
+  - name: prehst1.level
+    type: databin
+    start: 0x9731F0
+
+  - name: prehst2.level
+    type: databin
+    start: 0x9D0A50
+
+  - name: rezop2.level
+    type: databin
+    start: 0xA4C3E0
+
+  - name: rezop3.level
+    type: databin
+    start: 0xA57840
+
+  - name: rta1.level
+    type: databin
+    start: 0xACB540
+
+  - name: scifi10.level
+    type: databin
+    start: 0xB6A440
+
+  - name: scifi14.level
+    type: databin
+    start: 0xBC7430
+
+  - name: spy2.level
+    type: databin
+    start: 0xC18BC0
+
+  - name: 10tons.actor
+    type: databin
+    start: 0xC495B0
+
+  - name: abubble.actor
+    type: databin
+    start: 0xC49E70
+
+  - name: acrate.actor
+    type: databin
+    start: 0xC4AF90
+
+  - name: actplat.actor
+    type: databin
+    start: 0xC4B440
+
+  - name: ahead.actor
+    type: databin
+    start: 0xC4C580
+
+  - name: alien.actor
+    type: databin
+    start: 0xC4CC20
+
+  - name: aliens.actor
+    type: databin
+    start: 0xC51280
+
+  - name: anvil.actor
+    type: databin
+    start: 0xC51A20
+
+  - name: anvlgex.actor
+    type: databin
+    start: 0xC52150
+
+  - name: apod.actor
+    type: databin
+    start: 0xC529C0
+
+  - name: armor.actor
+    type: databin
+    start: 0xC561E0
+
+  - name: armorsq.actor
+    type: databin
+    start: 0xC57880
+
+  - name: armorx.actor
+    type: databin
+    start: 0xC58E90
+
+  - name: arrowin.actor
+    type: databin
+    start: 0xC5A4A0
+
+  - name: astbasa.actor
+    type: databin
+    start: 0xC5A930
+
+  - name: astmed.actor
+    type: databin
+    start: 0xC5BEF0
+
+  - name: astmeda.actor
+    type: databin
+    start: 0xC5C770
+
+  - name: astmedn.actor
+    type: databin
+    start: 0xC5CB40
+
+  - name: astplta.actor
+    type: databin
+    start: 0xC5D390
+
+  - name: astpltb.actor
+    type: databin
+    start: 0xC5EB80
+
+  - name: atom.actor
+    type: databin
+    start: 0xC60370
+
+  - name: atree.actor
+    type: databin
+    start: 0xC64110
+
+  - name: atreeb.actor
+    type: databin
+    start: 0xC653B0
+
+  - name: axe.actor
+    type: databin
+    start: 0xC66680
+
+  - name: azstep.actor
+    type: databin
+    start: 0xC66E70
+
+  - name: aztcbk.actor
+    type: databin
+    start: 0xC679F0
+
+  - name: aztcbks.actor
+    type: databin
+    start: 0xC67D20
+
+  - name: aztcbs.actor
+    type: databin
+    start: 0xC682C0
+
+  - name: aztcflr.actor
+    type: databin
+    start: 0xC688D0
+
+  - name: aztcpc.actor
+    type: databin
+    start: 0xC6AFA0
+
+  - name: aztcwl.actor
+    type: databin
+    start: 0xC6B5F0
+
+  - name: badge.actor
+    type: databin
+    start: 0xC6C040
+
+  - name: bamba.actor
+    type: databin
+    start: 0xC6CAB0
+
+  - name: bamboo.actor
+    type: databin
+    start: 0xC6CFE0
+
+  - name: banner.actor
+    type: databin
+    start: 0xC6D610
+
+  - name: basramp.actor
+    type: databin
+    start: 0xC6E680
+
+  - name: batt.actor
+    type: databin
+    start: 0xC70260
+
+  - name: bdocf.actor
+    type: databin
+    start: 0xC70BD0
+
+  - name: bdocs.actor
+    type: databin
+    start: 0xC76160
+
+  - name: beachum.actor
+    type: databin
+    start: 0xC7A2A0
+
+  - name: bee.actor
+    type: databin
+    start: 0xC7AA70
+
+  - name: bell.actor
+    type: databin
+    start: 0xC7B690
+
+  - name: bigcact.actor
+    type: databin
+    start: 0xC7C720
+
+  - name: billzap.actor
+    type: databin
+    start: 0xC7D700
+
+  - name: bkshlf.actor
+    type: databin
+    start: 0xC7F5A0
+
+  - name: blackgex.actor
+    type: databin
+    start: 0xC80090
+
+  - name: blaster.actor
+    type: databin
+    start: 0xC81410
+
+  - name: blastx.actor
+    type: databin
+    start: 0xC84360
+
+  - name: blasty.actor
+    type: databin
+    start: 0xC85E60
+
+  - name: bldbota.actor
+    type: databin
+    start: 0xC89120
+
+  - name: bldbotc.actor
+    type: databin
+    start: 0xC8B3C0
+
+  - name: bldfata.actor
+    type: databin
+    start: 0xC8D6B0
+
+  - name: bldga.actor
+    type: databin
+    start: 0xC8EBB0
+
+  - name: bldgb.actor
+    type: databin
+    start: 0xC8FE00
+
+  - name: bldgc.actor
+    type: databin
+    start: 0xC926D0
+
+  - name: bldgd.actor
+    type: databin
+    start: 0xC94140
+
+  - name: bldge.actor
+    type: databin
+    start: 0xC96740
+
+  - name: bldgf.actor
+    type: databin
+    start: 0xC97C60
+
+  - name: bldgg.actor
+    type: databin
+    start: 0xC99970
+
+  - name: bldgh.actor
+    type: databin
+    start: 0xC9AEE0
+
+  - name: bldgi.actor
+    type: databin
+    start: 0xC9DF40
+
+  - name: bldgk.actor
+    type: databin
+    start: 0xCA0EF0
+
+  - name: bldrgen.actor
+    type: databin
+    start: 0xCA2D30
+
+  - name: bldtopa.actor
+    type: databin
+    start: 0xCA2DA0
+
+  - name: blububl.actor
+    type: databin
+    start: 0xCA4880
+
+  - name: blusmal.actor
+    type: databin
+    start: 0xCA5370
+
+  - name: bluspot.actor
+    type: databin
+    start: 0xCA5C30
+
+  - name: bnoside.actor
+    type: databin
+    start: 0xCA64E0
+
+  - name: bnosidp.actor
+    type: databin
+    start: 0xCAC070
+
+  - name: bolts.actor
+    type: databin
+    start: 0xCB1C60
+
+  - name: bomb.actor
+    type: databin
+    start: 0xCB1FD0
+
+  - name: boulder.actor
+    type: databin
+    start: 0xCB2980
+
+  - name: bowling.actor
+    type: databin
+    start: 0xCB2F30
+
+  - name: bplant.actor
+    type: databin
+    start: 0xCB35E0
+
+  - name: bplat.actor
+    type: databin
+    start: 0xCB3F50
+
+  - name: bridge.actor
+    type: databin
+    start: 0xCB4E80
+
+  - name: bridgex.actor
+    type: databin
+    start: 0xCBAA10
+
+  - name: brkbloc.actor
+    type: databin
+    start: 0xCC0600
+
+  - name: brkblok.actor
+    type: databin
+    start: 0xCC0AB0
+
+  - name: brkbone.actor
+    type: databin
+    start: 0xCC15E0
+
+  - name: brkmir.actor
+    type: databin
+    start: 0xCC1C00
+
+  - name: btimer.actor
+    type: databin
+    start: 0xCC2210
+
+  - name: bub.actor
+    type: databin
+    start: 0xCC23D0
+
+  - name: bubsnd.actor
+    type: databin
+    start: 0xCC3150
+
+  - name: buddha.actor
+    type: databin
+    start: 0xCC31E0
+
+  - name: buddhab.actor
+    type: databin
+    start: 0xCC41F0
+
+  - name: bug.actor
+    type: databin
+    start: 0xCC53A0
+
+  - name: bullet.actor
+    type: databin
+    start: 0xCC5C60
+
+  - name: bunnygex.actor
+    type: databin
+    start: 0xCC5FF0
+
+  - name: bwltop.actor
+    type: databin
+    start: 0xCC9450
+
+  - name: bwltree.actor
+    type: databin
+    start: 0xCCA4A0
+
+  - name: cactflt.actor
+    type: databin
+    start: 0xCCAFC0
+
+  - name: cactus.actor
+    type: databin
+    start: 0xCCB7B0
+
+  - name: cammode.actor
+    type: databin
+    start: 0xCCBE80
+
+  - name: camswch.actor
+    type: databin
+    start: 0xCCC740
+
+  - name: canball.actor
+    type: databin
+    start: 0xCCC7C0
+
+  - name: cannon.actor
+    type: databin
+    start: 0xCCCB50
+
+  - name: canteet.actor
+    type: databin
+    start: 0xCCD5D0
+
+  - name: capaci.actor
+    type: databin
+    start: 0xCCEDB0
+
+  - name: capacit.actor
+    type: databin
+    start: 0xCCF580
+
+  - name: carrot.actor
+    type: databin
+    start: 0xCCFB70
+
+  - name: carrots.actor
+    type: databin
+    start: 0xCD0290
+
+  - name: casdraw.actor
+    type: databin
+    start: 0xCD0770
+
+  - name: case.actor
+    type: databin
+    start: 0xCD1180
+
+  - name: cavegex.actor
+    type: databin
+    start: 0xCD18A0
+
+  - name: cavetl.actor
+    type: databin
+    start: 0xCD6470
+
+  - name: ccface.actor
+    type: databin
+    start: 0xCD7290
+
+  - name: ceramic.actor
+    type: databin
+    start: 0xCD76B0
+
+  - name: chand.actor
+    type: databin
+    start: 0xCD8450
+
+  - name: chandb.actor
+    type: databin
+    start: 0xCD94D0
+
+  - name: charger.actor
+    type: databin
+    start: 0xCDA6D0
+
+  - name: cheapgx.actor
+    type: databin
+    start: 0xCDBEE0
+
+  - name: cherifx.actor
+    type: databin
+    start: 0xCDE820
+
+  - name: choppa.actor
+    type: databin
+    start: 0xCDE960
+
+  - name: chrganm.actor
+    type: databin
+    start: 0xCDFF50
+
+  - name: chrghld.actor
+    type: databin
+    start: 0xCE16F0
+
+  - name: circgex.actor
+    type: databin
+    start: 0xCE1C30
+
+  - name: circitv.actor
+    type: databin
+    start: 0xCE3B30
+
+  - name: cola.actor
+    type: databin
+    start: 0xCE5C90
+
+  - name: cold.actor
+    type: databin
+    start: 0xCE6120
+
+  - name: colfire.actor
+    type: databin
+    start: 0xCE61A0
+
+  - name: collide.actor
+    type: databin
+    start: 0xCE6220
+
+  - name: computo.actor
+    type: databin
+    start: 0xCE62A0
+
+  - name: const.actor
+    type: databin
+    start: 0xCE6A30
+
+  - name: convey.actor
+    type: databin
+    start: 0xCE7350
+
+  - name: cooler.actor
+    type: databin
+    start: 0xCE74D0
+
+  - name: cooltop.actor
+    type: databin
+    start: 0xCE7960
+
+  - name: copgex.actor
+    type: databin
+    start: 0xCE84F0
+
+  - name: couldrn.actor
+    type: databin
+    start: 0xCEC930
+
+  - name: count.actor
+    type: databin
+    start: 0xCECA10
+
+  - name: cowhead.actor
+    type: databin
+    start: 0xCED040
+
+  - name: crkpltb.actor
+    type: databin
+    start: 0xCED910
+
+  - name: crnkplt.actor
+    type: databin
+    start: 0xCEE270
+
+  - name: crysnub.actor
+    type: databin
+    start: 0xCEF3A0
+
+  - name: cryslogo.actor
+    type: databin
+    start: 0xCEFD60
+
+  - name: daisy.actor
+    type: databin
+    start: 0xCF6DD0
+
+  - name: darkshp.actor
+    type: databin
+    start: 0xCFA050
+
+  - name: darksop.actor
+    type: databin
+    start: 0xCFC8E0
+
+  - name: dbgcam.actor
+    type: databin
+    start: 0xCFF0C0
+
+  - name: dbones.actor
+    type: databin
+    start: 0xCFF440
+
+  - name: deadguy.actor
+    type: databin
+    start: 0xCFFF60
+
+  - name: deadzom.actor
+    type: databin
+    start: 0xD00CD0
+
+  - name: derez.actor
+    type: databin
+    start: 0xD02BC0
+
+  - name: dino.actor
+    type: databin
+    start: 0xD043E0
+
+  - name: disco.actor
+    type: databin
+    start: 0xD04AA0
+
+  - name: discoff.actor
+    type: databin
+    start: 0xD057C0
+
+  - name: discogex.actor
+    type: databin
+    start: 0xD061F0
+
+  - name: dish.actor
+    type: databin
+    start: 0xD0B490
+
+  - name: dock.actor
+    type: databin
+    start: 0xD0B840
+
+  - name: dockpst.actor
+    type: databin
+    start: 0xD0BEF0
+
+  - name: door.actor
+    type: databin
+    start: 0xD0C3D0
+
+  - name: doora.actor
+    type: databin
+    start: 0xD0C940
+
+  - name: draga.actor
+    type: databin
+    start: 0xD0CFA0
+
+  - name: dragb.actor
+    type: databin
+    start: 0xD0E220
+
+  - name: dragc.actor
+    type: databin
+    start: 0xD0E7C0
+
+  - name: dragflm.actor
+    type: databin
+    start: 0xD0EB70
+
+  - name: drawer.actor
+    type: databin
+    start: 0xD10DC0
+
+  - name: drip.actor
+    type: databin
+    start: 0xD11580
+
+  - name: drum.actor
+    type: databin
+    start: 0xD11E40
+
+  - name: dscbal.actor
+    type: databin
+    start: 0xD126E0
+
+  - name: duckgex.actor
+    type: databin
+    start: 0xD12DB0
+
+  - name: dust.actor
+    type: databin
+    start: 0xD15CF0
+
+  - name: ebolt.actor
+    type: databin
+    start: 0xD15EA0
+
+  - name: ebridge.actor
+    type: databin
+    start: 0xD16EA0
+
+  - name: ebrijac.actor
+    type: databin
+    start: 0xD1CA80
+
+  - name: eel.actor
+    type: databin
+    start: 0xD1D430
+
+  - name: egg.actor
+    type: databin
+    start: 0xD1EE00
+
+  - name: elecsnd.actor
+    type: databin
+    start: 0xD1FC00
+
+  - name: elevpan.actor
+    type: databin
+    start: 0xD1FD80
+
+  - name: elmer.actor
+    type: databin
+    start: 0xD202B0
+
+  - name: elmpuff.actor
+    type: databin
+    start: 0xD24100
+
+  - name: endtvca.actor
+    type: databin
+    start: 0xD24CB0
+
+  - name: endtvcc.actor
+    type: databin
+    start: 0xD274A0
+
+  - name: endtvho.actor
+    type: databin
+    start: 0xD29CD0
+
+  - name: endtvku.actor
+    type: databin
+    start: 0xD2C500
+
+  - name: endtvpr.actor
+    type: databin
+    start: 0xD2ECD0
+
+  - name: endtvre.actor
+    type: databin
+    start: 0xD31510
+
+  - name: endtvsc.actor
+    type: databin
+    start: 0xD33D30
+
+  - name: endtvz.actor
+    type: databin
+    start: 0xD36540
+
+  - name: escape.actor
+    type: databin
+    start: 0xD38BE0
+
+  - name: etvbutn.actor
+    type: databin
+    start: 0xD39320
+
+  - name: evileye.actor
+    type: databin
+    start: 0xD39C70
+
+  - name: evilz.actor
+    type: databin
+    start: 0xD39DE0
+
+  - name: explode.actor
+    type: databin
+    start: 0xD3A890
+
+  - name: face.actor
+    type: databin
+    start: 0xD3B0F0
+
+  - name: fallgen.actor
+    type: databin
+    start: 0xD3BE60
+
+  - name: fatlady.actor
+    type: databin
+    start: 0xD3C2A0
+
+  - name: ffield.actor
+    type: databin
+    start: 0xD3D5D0
+
+  - name: finger.actor
+    type: databin
+    start: 0xD3DC30
+
+  - name: finltv.actor
+    type: databin
+    start: 0xD3DF00
+
+  - name: finltvb.actor
+    type: databin
+    start: 0xD3F510
+
+  - name: finplat.actor
+    type: databin
+    start: 0xD40B20
+
+  - name: flame.actor
+    type: databin
+    start: 0xD41CB0
+
+  - name: flasher.actor
+    type: databin
+    start: 0xD42930
+
+  - name: flatt.actor
+    type: databin
+    start: 0xD429A0
+
+  - name: fltchst.actor
+    type: databin
+    start: 0xD44CD0
+
+  - name: fltdesk.actor
+    type: databin
+    start: 0xD451F0
+
+  - name: fltlamp.actor
+    type: databin
+    start: 0xD45BA0
+
+  - name: flttbl.actor
+    type: databin
+    start: 0xD47AF0
+
+  - name: flttblb.actor
+    type: databin
+    start: 0xD48140
+
+  - name: flttblc.actor
+    type: databin
+    start: 0xD487A0
+
+  - name: flyplat.actor
+    type: databin
+    start: 0xD48DA0
+
+  - name: follow.actor
+    type: databin
+    start: 0xD49580
+
+  - name: fonts.actor
+    type: databin
+    start: 0xD495F0
+
+  - name: fpower.actor
+    type: databin
+    start: 0xD4AB90
+
+  - name: frelect.actor
+    type: databin
+    start: 0xD4AC10
+
+  - name: frez.actor
+    type: databin
+    start: 0xD4BD40
+
+  - name: frezgbl.actor
+    type: databin
+    start: 0xD5F2A0
+
+  - name: frocket.actor
+    type: databin
+    start: 0xD609A0
+
+  - name: funbush.actor
+    type: databin
+    start: 0xD64CB0
+
+  - name: funfx.actor
+    type: databin
+    start: 0xD65130
+
+  - name: funpinc.actor
+    type: databin
+    start: 0xD65420
+
+  - name: funpine.actor
+    type: databin
+    start: 0xD65C50
+
+  - name: funplat.actor
+    type: databin
+    start: 0xD66500
+
+  - name: funplt.actor
+    type: databin
+    start: 0xD668A0
+
+  - name: funrock.actor
+    type: databin
+    start: 0xD66CE0
+
+  - name: funsign.actor
+    type: databin
+    start: 0xD67CB0
+
+  - name: funtree.actor
+    type: databin
+    start: 0xD688B0
+
+  - name: fx.actor
+    type: databin
+    start: 0xD69690
+
+  - name: fxgreen.actor
+    type: databin
+    start: 0xD69770
+
+  - name: fxpurple.actor
+    type: databin
+    start: 0xD69A10
+
+  - name: gas.actor
+    type: databin
+    start: 0xD69CD0
+
+  - name: gate.actor
+    type: databin
+    start: 0xD6B730
+
+  - name: gateb.actor
+    type: databin
+    start: 0xD6BF10
+
+  - name: gatesph.actor
+    type: databin
+    start: 0xD6C060
+
+  - name: gblade.actor
+    type: databin
+    start: 0xD6C0D0
+
+  - name: gear.actor
+    type: databin
+    start: 0xD6C320
+
+  - name: gello.actor
+    type: databin
+    start: 0xD6D040
+
+  - name: gem.actor
+    type: databin
+    start: 0xD6D790
+
+  - name: gengen.actor
+    type: databin
+    start: 0xD6E520
+
+  - name: gexeyes.actor
+    type: databin
+    start: 0xD6E5A0
+
+  - name: gexlif.actor
+    type: databin
+    start: 0xD6ED50
+
+  - name: gexsml.actor
+    type: databin
+    start: 0xD6EF50
+
+  - name: gexcopy.actor
+    type: databin
+    start: 0xD71890
+
+  - name: gextext.actor
+    type: databin
+    start: 0xD72900
+
+  - name: enttext.actor
+    type: databin
+    start: 0xD78360
+
+  - name: gectext.actor
+    type: databin
+    start: 0xD786C0
+
+  - name: gexzilla.actor
+    type: databin
+    start: 0xD78B40
+
+  - name: geysfx.actor
+    type: databin
+    start: 0xD821D0
+
+  - name: gflame.actor
+    type: databin
+    start: 0xD82CD0
+
+  - name: ggpole.actor
+    type: databin
+    start: 0xD830F0
+
+  - name: gilligex.actor
+    type: databin
+    start: 0xD837C0
+
+  - name: gilpot.actor
+    type: databin
+    start: 0xD871B0
+
+  - name: gong.actor
+    type: databin
+    start: 0xD88290
+
+  - name: grass.actor
+    type: databin
+    start: 0xD88DC0
+
+  - name: grate.actor
+    type: databin
+    start: 0xD892C0
+
+  - name: grndclk.actor
+    type: databin
+    start: 0xD89560
+
+  - name: grrfish.actor
+    type: databin
+    start: 0xD8A4A0
+
+  - name: hardhed.actor
+    type: databin
+    start: 0xD8B310
+
+  - name: helmet.actor
+    type: databin
+    start: 0xD8B890
+
+  - name: hflame.actor
+    type: databin
+    start: 0xD8BCF0
+
+  - name: hhelev.actor
+    type: databin
+    start: 0xD8C270
+
+  - name: hhelevb.actor
+    type: databin
+    start: 0xD8F6B0
+
+  - name: hole.actor
+    type: databin
+    start: 0xD91CD0
+
+  - name: hrblock.actor
+    type: databin
+    start: 0xD92280
+
+  - name: hrrgex.actor
+    type: databin
+    start: 0xD929A0
+
+  - name: hrswtch.actor
+    type: databin
+    start: 0xD96730
+
+  - name: hswch.actor
+    type: databin
+    start: 0xD97010
+
+  - name: huck.actor
+    type: databin
+    start: 0xD97B00
+
+  - name: huckhed.actor
+    type: databin
+    start: 0xD9A890
+
+  - name: hud.actor
+    type: databin
+    start: 0xD9B250
+
+  - name: ice.actor
+    type: databin
+    start: 0xD9BAD0
+
+  - name: icecube.actor
+    type: databin
+    start: 0xD9BB40
+
+  - name: indygex.actor
+    type: databin
+    start: 0xD9C370
+
+  - name: introfx.actor
+    type: databin
+    start: 0xDA0AB0
+
+  - name: invis.actor
+    type: databin
+    start: 0xDA0BF0
+
+  - name: iris.actor
+    type: databin
+    start: 0xDA0CC0
+
+  - name: jacob.actor
+    type: databin
+    start: 0xDA1DA0
+
+  - name: jason.actor
+    type: databin
+    start: 0xDA3250
+
+  - name: jaw.actor
+    type: databin
+    start: 0xDA3E00
+
+  - name: jblade.actor
+    type: databin
+    start: 0xDA5CA0
+
+  - name: jcrate.actor
+    type: databin
+    start: 0xDA6050
+
+  - name: jdummy.actor
+    type: databin
+    start: 0xDA68D0
+
+  - name: jimbloc.actor
+    type: databin
+    start: 0xDA6A50
+
+  - name: jimboat.actor
+    type: databin
+    start: 0xDA7130
+
+  - name: jimbox.actor
+    type: databin
+    start: 0xDA8660
+
+  - name: jimfish.actor
+    type: databin
+    start: 0xDA8D70
+
+  - name: jimfuze.actor
+    type: databin
+    start: 0xDA9A20
+
+  - name: jimplts.actor
+    type: databin
+    start: 0xDA9D60
+
+  - name: jimrock.actor
+    type: databin
+    start: 0xDAAC70
+
+  - name: jimsign.actor
+    type: databin
+    start: 0xDABA40
+
+  - name: jimsmok.actor
+    type: databin
+    start: 0xDAC150
+
+  - name: jimsprk.actor
+    type: databin
+    start: 0xDAC590
+
+  - name: jimstop.actor
+    type: databin
+    start: 0xDACBB0
+
+  - name: jimteet.actor
+    type: databin
+    start: 0xDAD610
+
+  - name: jinvis.actor
+    type: databin
+    start: 0xDAE180
+
+  - name: jplat.actor
+    type: databin
+    start: 0xDAE2E0
+
+  - name: jsecret.actor
+    type: databin
+    start: 0xDAF520
+
+  - name: jsign.actor
+    type: databin
+    start: 0xDAFE10
+
+  - name: jsteam.actor
+    type: databin
+    start: 0xDB0A00
+
+  - name: kabuki.actor
+    type: databin
+    start: 0xDB1770
+
+  - name: karch.actor
+    type: databin
+    start: 0xDB21D0
+
+  - name: karchb.actor
+    type: databin
+    start: 0xDB3920
+
+  - name: karchc.actor
+    type: databin
+    start: 0xDB4440
+
+  - name: kbgen.actor
+    type: databin
+    start: 0xDB5530
+
+  - name: kboat.actor
+    type: databin
+    start: 0xDB5610
+
+  - name: kbreak.actor
+    type: databin
+    start: 0xDB77B0
+
+  - name: kbreakb.actor
+    type: databin
+    start: 0xDB7C80
+
+  - name: kbridge.actor
+    type: databin
+    start: 0xDB8320
+
+  - name: kcover.actor
+    type: databin
+    start: 0xDB8890
+
+  - name: kcoverb.actor
+    type: databin
+    start: 0xDB8B90
+
+  - name: kdoor.actor
+    type: databin
+    start: 0xDB8F20
+
+  - name: kdoorb.actor
+    type: databin
+    start: 0xDB9530
+
+  - name: kdoorc.actor
+    type: databin
+    start: 0xDB9950
+
+  - name: kdoord.actor
+    type: databin
+    start: 0xDB9F60
+
+  - name: kfdoorb.actor
+    type: databin
+    start: 0xDBA410
+
+  - name: kfdoorc.actor
+    type: databin
+    start: 0xDBA990
+
+  - name: kfdoord.actor
+    type: databin
+    start: 0xDBB130
+
+  - name: kfdoore.actor
+    type: databin
+    start: 0xDBB670
+
+  - name: kflag.actor
+    type: databin
+    start: 0xDBBB40
+
+  - name: kgateop.actor
+    type: databin
+    start: 0xDBC0A0
+
+  - name: kitsink.actor
+    type: databin
+    start: 0xDBC200
+
+  - name: klampb.actor
+    type: databin
+    start: 0xDBCE70
+
+  - name: kneon.actor
+    type: databin
+    start: 0xDBDFB0
+
+  - name: kngbdha.actor
+    type: databin
+    start: 0xDBE0B0
+
+  - name: kngcovr.actor
+    type: databin
+    start: 0xDBF330
+
+  - name: kngdmnd.actor
+    type: databin
+    start: 0xDBF6B0
+
+  - name: kngflor.actor
+    type: databin
+    start: 0xDBFB10
+
+  - name: knghyde.actor
+    type: databin
+    start: 0xDBFDC0
+
+  - name: kngleap.actor
+    type: databin
+    start: 0xDC0190
+
+  - name: kngpilr.actor
+    type: databin
+    start: 0xDC2840
+
+  - name: kngpilrb.actor
+    type: databin
+    start: 0xDC2E50
+
+  - name: kngpost.actor
+    type: databin
+    start: 0xDC37A0
+
+  - name: kngslab.actor
+    type: databin
+    start: 0xDC3DA0
+
+  - name: kngstep.actor
+    type: databin
+    start: 0xDC4020
+
+  - name: kngtri.actor
+    type: databin
+    start: 0xDC4540
+
+  - name: kngwhip.actor
+    type: databin
+    start: 0xDC4B50
+
+  - name: kngwnda.actor
+    type: databin
+    start: 0xDC5240
+
+  - name: kngwndb.actor
+    type: databin
+    start: 0xDC7490
+
+  - name: kngwndc.actor
+    type: databin
+    start: 0xDC98C0
+
+  - name: kngwndd.actor
+    type: databin
+    start: 0xDCBD00
+
+  - name: kpilcvr.actor
+    type: databin
+    start: 0xDCE310
+
+  - name: kpill.actor
+    type: databin
+    start: 0xDCEB20
+
+  - name: kpillow.actor
+    type: databin
+    start: 0xDCF2E0
+
+  - name: kplat.actor
+    type: databin
+    start: 0xDCFA20
+
+  - name: kplatb.actor
+    type: databin
+    start: 0xDCFE60
+
+  - name: kplatc.actor
+    type: databin
+    start: 0xDD0250
+
+  - name: kplatd.actor
+    type: databin
+    start: 0xDD0830
+
+  - name: kplate.actor
+    type: databin
+    start: 0xDD0EF0
+
+  - name: kpole.actor
+    type: databin
+    start: 0xDD1510
+
+  - name: kpoleb.actor
+    type: databin
+    start: 0xDD2180
+
+  - name: kpost.actor
+    type: databin
+    start: 0xDD26E0
+
+  - name: kroof.actor
+    type: databin
+    start: 0xDD2890
+
+  - name: kscorp.actor
+    type: databin
+    start: 0xDD4060
+
+  - name: kswing.actor
+    type: databin
+    start: 0xDD5780
+
+  - name: ktable.actor
+    type: databin
+    start: 0xDD5F60
+
+  - name: ktilt.actor
+    type: databin
+    start: 0xDD6440
+
+  - name: ktower.actor
+    type: databin
+    start: 0xDD74E0
+
+  - name: ktreea.actor
+    type: databin
+    start: 0xDD84B0
+
+  - name: kungfugx.actor
+    type: databin
+    start: 0xDD9070
+
+  - name: kungrot.actor
+    type: databin
+    start: 0xDE11F0
+
+  - name: kungtv.actor
+    type: databin
+    start: 0xDE1F70
+
+  - name: lace.actor
+    type: databin
+    start: 0xDE4310
+
+  - name: laser.actor
+    type: databin
+    start: 0xDE4970
+
+  - name: laserg.actor
+    type: databin
+    start: 0xDE5660
+
+  - name: laserr.actor
+    type: databin
+    start: 0xDE5900
+
+  - name: lasers.actor
+    type: databin
+    start: 0xDE5BD0
+
+  - name: launch.actor
+    type: databin
+    start: 0xDE5E90
+
+  - name: lavadrp.actor
+    type: databin
+    start: 0xDE62A0
+
+  - name: leafa.actor
+    type: databin
+    start: 0xDE70D0
+
+  - name: leaffx.actor
+    type: databin
+    start: 0xDE76E0
+
+  - name: leap.actor
+    type: databin
+    start: 0xDE7860
+
+  - name: leaves.actor
+    type: databin
+    start: 0xDE7B00
+
+  - name: lectro.actor
+    type: databin
+    start: 0xDE7B80
+
+  - name: led.actor
+    type: databin
+    start: 0xDE9690
+
+  - name: lilly.actor
+    type: databin
+    start: 0xDE9EB0
+
+  - name: lite.actor
+    type: databin
+    start: 0xDEA140
+
+  - name: loadtv.actor
+    type: databin
+    start: 0xDEA4E0
+
+  - name: logturn.actor
+    type: databin
+    start: 0xDEA5D0
+
+  - name: looban.actor
+    type: databin
+    start: 0xDEB400
+
+  - name: lvllabl.actor
+    type: databin
+    start: 0xDEC680
+
+  - name: lvltv.actor
+    type: databin
+    start: 0xDEEF80
+
+  - name: magic.actor
+    type: databin
+    start: 0xE06A90
+
+  - name: mailbox.actor
+    type: databin
+    start: 0xE07B40
+
+  - name: manhole.actor
+    type: databin
+    start: 0xE090A0
+
+  - name: mapicon.actor
+    type: databin
+    start: 0xE09340
+
+  - name: markeya.actor
+    type: databin
+    start: 0xE10200
+
+  - name: markeyb.actor
+    type: databin
+    start: 0xE10450
+
+  - name: markeyc.actor
+    type: databin
+    start: 0xE10670
+
+  - name: markeyd.actor
+    type: databin
+    start: 0xE108B0
+
+  - name: mbdocf.actor
+    type: databin
+    start: 0xE10B00
+
+  - name: mbdocs.actor
+    type: databin
+    start: 0xE15A80
+
+  - name: mecha.actor
+    type: databin
+    start: 0xE1A990
+
+  - name: mechlif.actor
+    type: databin
+    start: 0xE2C0C0
+
+  - name: mekblst.actor
+    type: databin
+    start: 0xE2C2A0
+
+  - name: mflame.actor
+    type: databin
+    start: 0xE2D770
+
+  - name: mistfx.actor
+    type: databin
+    start: 0xE2DE00
+
+  - name: monkygex.actor
+    type: databin
+    start: 0xE2E1E0
+
+  - name: moo.actor
+    type: databin
+    start: 0xE327C0
+
+  - name: moobar.actor
+    type: databin
+    start: 0xE3E220
+
+  - name: moodam.actor
+    type: databin
+    start: 0xE3E810
+
+  - name: mooelec.actor
+    type: databin
+    start: 0xE3ED40
+
+  - name: moolevr.actor
+    type: databin
+    start: 0xE46190
+
+  - name: moosprk.actor
+    type: databin
+    start: 0xE46390
+
+  - name: mooswch.actor
+    type: databin
+    start: 0xE468A0
+
+  - name: mplat.actor
+    type: databin
+    start: 0xE46A40
+
+  - name: mspider.actor
+    type: databin
+    start: 0xE47450
+
+  - name: mtntfx.actor
+    type: databin
+    start: 0xE488A0
+
+  - name: mtntsht.actor
+    type: databin
+    start: 0xE48BC0
+
+  - name: mushrm.actor
+    type: databin
+    start: 0xE48FD0
+
+  - name: mutant.actor
+    type: databin
+    start: 0xE49950
+
+  - name: mwgex.actor
+    type: databin
+    start: 0xE4CB70
+
+  - name: mwlogo.actor
+    type: databin
+    start: 0xE4E880
+
+  - name: mwfly.actor
+    type: databin
+    start: 0xE4F520
+
+  - name: mylot.actor
+    type: databin
+    start: 0xE519F0
+
+  - name: nflame.actor
+    type: databin
+    start: 0xE53570
+
+  - name: ninja.actor
+    type: databin
+    start: 0xE53960
+
+  - name: ninstar.actor
+    type: databin
+    start: 0xE58AA0
+
+  - name: node.actor
+    type: databin
+    start: 0xE59000
+
+  - name: nypdt.actor
+    type: databin
+    start: 0xE59120
+
+  - name: nypdtn.actor
+    type: databin
+    start: 0xE5AD10
+
+  - name: oilcan.actor
+    type: databin
+    start: 0xE5CC10
+
+  - name: onesign.actor
+    type: databin
+    start: 0xE5D5F0
+
+  - name: oneup.actor
+    type: databin
+    start: 0xE5DD00
+
+  - name: orbplat.actor
+    type: databin
+    start: 0xE5E250
+
+  - name: orbpole.actor
+    type: databin
+    start: 0xE5ECF0
+
+  - name: pagoda.actor
+    type: databin
+    start: 0xE600F0
+
+  - name: pagodb.actor
+    type: databin
+    start: 0xE60D50
+
+  - name: password.actor
+    type: databin
+    start: 0xE61A20
+
+  - name: pball.actor
+    type: databin
+    start: 0xE61B00
+
+  - name: pbirth.actor
+    type: databin
+    start: 0xE62AC0
+
+  - name: pend.actor
+    type: databin
+    start: 0xE62C50
+
+  - name: pew.actor
+    type: databin
+    start: 0xE63950
+
+  - name: pewhat.actor
+    type: databin
+    start: 0xE653E0
+
+  - name: pewmon.actor
+    type: databin
+    start: 0xE659B0
+
+  - name: phaser.actor
+    type: databin
+    start: 0xE66640
+
+  - name: pig.actor
+    type: databin
+    start: 0xE66D30
+
+  - name: pillara.actor
+    type: databin
+    start: 0xE68C30
+
+  - name: pillarb.actor
+    type: databin
+    start: 0xE69500
+
+  - name: pillarc.actor
+    type: databin
+    start: 0xE698F0
+
+  - name: pillard.actor
+    type: databin
+    start: 0xE69C90
+
+  - name: pillare.actor
+    type: databin
+    start: 0xE6A060
+
+  - name: planta.actor
+    type: databin
+    start: 0xE6A6A0
+
+  - name: plasmas.actor
+    type: databin
+    start: 0xE6AD20
+
+  - name: plunge.actor
+    type: databin
+    start: 0xE6BCE0
+
+  - name: pnteye.actor
+    type: databin
+    start: 0xE6C310
+
+  - name: poop.actor
+    type: databin
+    start: 0xE6C440
+
+  - name: poopqq.actor
+    type: databin
+    start: 0xE6EA30
+
+  - name: poopz.actor
+    type: databin
+    start: 0xE71030
+
+  - name: poplite.actor
+    type: databin
+    start: 0xE73620
+
+  - name: popper.actor
+    type: databin
+    start: 0xE73920
+
+  - name: porter.actor
+    type: databin
+    start: 0xE74250
+
+  - name: powertv.actor
+    type: databin
+    start: 0xE74710
+
+  - name: ppath.actor
+    type: databin
+    start: 0xE76AA0
+
+  - name: ppatha.actor
+    type: databin
+    start: 0xE77780
+
+  - name: ppathb.actor
+    type: databin
+    start: 0xE78550
+
+  - name: ppathc.actor
+    type: databin
+    start: 0xE793E0
+
+  - name: ppathf.actor
+    type: databin
+    start: 0xE7A220
+
+  - name: pplat.actor
+    type: databin
+    start: 0xE7B2F0
+
+  - name: probe.actor
+    type: databin
+    start: 0xE7BC70
+
+  - name: proxsig.actor
+    type: databin
+    start: 0xE7CD90
+
+  - name: ptbug.actor
+    type: databin
+    start: 0xE7CE70
+
+  - name: ptera.actor
+    type: databin
+    start: 0xE7E320
+
+  - name: puff.actor
+    type: databin
+    start: 0xE801C0
+
+  - name: puffa.actor
+    type: databin
+    start: 0xE80410
+
+  - name: pufstar.actor
+    type: databin
+    start: 0xE80B20
+
+  - name: pulse.actor
+    type: databin
+    start: 0xE813B0
+
+  - name: pumpkin.actor
+    type: databin
+    start: 0xE82500
+
+  - name: pusha.actor
+    type: databin
+    start: 0xE82DC0
+
+  - name: pusher.actor
+    type: databin
+    start: 0xE83BF0
+
+  - name: pushfnt.actor
+    type: databin
+    start: 0xE84A40
+
+  - name: qbars.actor
+    type: databin
+    start: 0xE858D0
+
+  - name: qcoll.actor
+    type: databin
+    start: 0xE85AB0
+
+  - name: qcsph.actor
+    type: databin
+    start: 0xE85B00
+
+  - name: qdoor.actor
+    type: databin
+    start: 0xE85B80
+
+  - name: qelev.actor
+    type: databin
+    start: 0xE862A0
+
+  - name: qfish.actor
+    type: databin
+    start: 0xE86C50
+
+  - name: qlamp.actor
+    type: databin
+    start: 0xE871D0
+
+  - name: qmark.actor
+    type: databin
+    start: 0xE88C90
+
+  - name: qpad.actor
+    type: databin
+    start: 0xE89020
+
+  - name: qplat.actor
+    type: databin
+    start: 0xE89DD0
+
+  - name: qrain.actor
+    type: databin
+    start: 0xE8AA90
+
+  - name: qsauc.actor
+    type: databin
+    start: 0xE8C220
+
+  - name: qsdoor.actor
+    type: databin
+    start: 0xE8D810
+
+  - name: qsmall.actor
+    type: databin
+    start: 0xE8DCA0
+
+  - name: qsofa.actor
+    type: databin
+    start: 0xE8E250
+
+  - name: qssdoor.actor
+    type: databin
+    start: 0xE8EFA0
+
+  - name: qswch.actor
+    type: databin
+    start: 0xE8F600
+
+  - name: quadplt.actor
+    type: databin
+    start: 0xE8FFA0
+
+  - name: radar.actor
+    type: databin
+    start: 0xE907F0
+
+  - name: radiate.actor
+    type: databin
+    start: 0xE91A10
+
+  - name: rainbow.actor
+    type: databin
+    start: 0xE92510
+
+  - name: raptor.actor
+    type: databin
+    start: 0xE928E0
+
+  - name: rbmastr.actor
+    type: databin
+    start: 0xE94B40
+
+  - name: rconvey.actor
+    type: databin
+    start: 0xE94C20
+
+  - name: rdleafx.actor
+    type: databin
+    start: 0xE94DA0
+
+  - name: rebggen.actor
+    type: databin
+    start: 0xE94F20
+
+  - name: rebug.actor
+    type: databin
+    start: 0xE95000
+
+  - name: redgas.actor
+    type: databin
+    start: 0xE95D50
+
+  - name: remgfx.actor
+    type: databin
+    start: 0xE96F80
+
+  - name: remglow.actor
+    type: databin
+    start: 0xE97260
+
+  - name: remgold.actor
+    type: databin
+    start: 0xE97E10
+
+  - name: remred.actor
+    type: databin
+    start: 0xE994C0
+
+  - name: remrfx.actor
+    type: databin
+    start: 0xE9A9F0
+
+  - name: remrlow.actor
+    type: databin
+    start: 0xE9AC00
+
+  - name: remsfx.actor
+    type: databin
+    start: 0xE9B500
+
+  - name: remsilv.actor
+    type: databin
+    start: 0xE9B740
+
+  - name: resist.actor
+    type: databin
+    start: 0xE9CCA0
+
+  - name: rez.actor
+    type: databin
+    start: 0xE9DE00
+
+  - name: reza.actor
+    type: databin
+    start: 0xEAD8E0
+
+  - name: rezbomb.actor
+    type: databin
+    start: 0xEAEB20
+
+  - name: rezcrnk.actor
+    type: databin
+    start: 0xEAEEF0
+
+  - name: rezdrl.actor
+    type: databin
+    start: 0xEAFBA0
+
+  - name: rezdrr.actor
+    type: databin
+    start: 0xEB04B0
+
+  - name: rezfan.actor
+    type: databin
+    start: 0xEB0D80
+
+  - name: rezfont.actor
+    type: databin
+    start: 0xEB1540
+
+  - name: rezfx.actor
+    type: databin
+    start: 0xEB1820
+
+  - name: rezsoul.actor
+    type: databin
+    start: 0xEB3DD0
+
+  - name: rezsprk.actor
+    type: databin
+    start: 0xEB5810
+
+  - name: reztvex.actor
+    type: databin
+    start: 0xEB59F0
+
+  - name: rezxpl.actor
+    type: databin
+    start: 0xEB6E80
+
+  - name: remtext.actor
+    type: databin
+    start: 0xEB84B0
+
+  - name: rfback.actor
+    type: databin
+    start: 0xEB90B0
+
+  - name: robo.actor
+    type: databin
+    start: 0xEB9210
+
+  - name: robot.actor
+    type: databin
+    start: 0xEBC720
+
+  - name: rocket.actor
+    type: databin
+    start: 0xEBD1A0
+
+  - name: rockplt.actor
+    type: databin
+    start: 0xEC11E0
+
+  - name: rocks.actor
+    type: databin
+    start: 0xEC1A20
+
+  - name: rocksa.actor
+    type: databin
+    start: 0xEC23B0
+
+  - name: rocksb.actor
+    type: databin
+    start: 0xEC2B50
+
+  - name: rotpolb.actor
+    type: databin
+    start: 0xEC31E0
+
+  - name: rotpole.actor
+    type: databin
+    start: 0xEC39C0
+
+  - name: rrarm.actor
+    type: databin
+    start: 0xEC43B0
+
+  - name: rrplaqa.actor
+    type: databin
+    start: 0xEC4D20
+
+  - name: rrplaqb.actor
+    type: databin
+    start: 0xEC52C0
+
+  - name: rrplaqc.actor
+    type: databin
+    start: 0xEC5880
+
+  - name: rrplaqd.actor
+    type: databin
+    start: 0xEC5E40
+
+  - name: rrplaqe.actor
+    type: databin
+    start: 0xEC6400
+
+  - name: rrplaqf.actor
+    type: databin
+    start: 0xEC69C0
+
+  - name: rrsign.actor
+    type: databin
+    start: 0xEC6F70
+
+  - name: rt.actor
+    type: databin
+    start: 0xEC7370
+
+  - name: rtblast.actor
+    type: databin
+    start: 0xECA5A0
+
+  - name: rtlogor.actor
+    type: databin
+    start: 0xECB6C0
+
+  - name: sabre.actor
+    type: databin
+    start: 0xED2CF0
+
+  - name: samhead.actor
+    type: databin
+    start: 0xED2F50
+
+  - name: samuri.actor
+    type: databin
+    start: 0xED4890
+
+  - name: saphire.actor
+    type: databin
+    start: 0xED8100
+
+  - name: schcola.actor
+    type: databin
+    start: 0xED88C0
+
+  - name: schcolb.actor
+    type: databin
+    start: 0xED8930
+
+  - name: scorp.actor
+    type: databin
+    start: 0xED89A0
+
+  - name: scrate.actor
+    type: databin
+    start: 0xEDA5F0
+
+  - name: search.actor
+    type: databin
+    start: 0xEDAE50
+
+  - name: select.actor
+    type: databin
+    start: 0xEDBF20
+
+  - name: sewertp.actor
+    type: databin
+    start: 0xEDC010
+
+  - name: sfpatha.actor
+    type: databin
+    start: 0xEDC330
+
+  - name: sfpathb.actor
+    type: databin
+    start: 0xEDCF00
+
+  - name: sfpathd.actor
+    type: databin
+    start: 0xEDDA70
+
+  - name: sfplata.actor
+    type: databin
+    start: 0xEDE0F0
+
+  - name: sfplatc.actor
+    type: databin
+    start: 0xEDE5B0
+
+  - name: shade.actor
+    type: databin
+    start: 0xEDEA70
+
+  - name: shadow.actor
+    type: databin
+    start: 0xEDEBD0
+
+  - name: shadow2.actor
+    type: databin
+    start: 0xEDEF10
+
+  - name: shark.actor
+    type: databin
+    start: 0xEDF070
+
+  - name: shead.actor
+    type: databin
+    start: 0xEE1070
+
+  - name: ship.actor
+    type: databin
+    start: 0xEE1C20
+
+  - name: shittrn.actor
+    type: databin
+    start: 0xEE23F0
+
+  - name: signage.actor
+    type: databin
+    start: 0xEE2DF0
+
+  - name: simon.actor
+    type: databin
+    start: 0xEE3AF0
+
+  - name: simontv.actor
+    type: databin
+    start: 0xEE3B40
+
+  - name: skate.actor
+    type: databin
+    start: 0xEE44D0
+
+  - name: skel.actor
+    type: databin
+    start: 0xEE4C60
+
+  - name: skelh.actor
+    type: databin
+    start: 0xEEABB0
+
+  - name: skull.actor
+    type: databin
+    start: 0xEEB380
+
+  - name: slider.actor
+    type: databin
+    start: 0xEEBC90
+
+  - name: smiley.actor
+    type: databin
+    start: 0xEEBD00
+
+  - name: smokeb.actor
+    type: databin
+    start: 0xEEC6A0
+
+  - name: snkplat.actor
+    type: databin
+    start: 0xEECD00
+
+  - name: snowflk.actor
+    type: databin
+    start: 0xEEE140
+
+  - name: snowgen.actor
+    type: databin
+    start: 0xEEE2E0
+
+  - name: snwpine.actor
+    type: databin
+    start: 0xEEE3D0
+
+  - name: snwrefl.actor
+    type: databin
+    start: 0xEEEC20
+
+  - name: spacegex.actor
+    type: databin
+    start: 0xEEF380
+
+  - name: spark.actor
+    type: databin
+    start: 0xEF6C50
+
+  - name: sparkl.actor
+    type: databin
+    start: 0xEF6EA0
+
+  - name: spike.actor
+    type: databin
+    start: 0xEF7030
+
+  - name: spinach.actor
+    type: databin
+    start: 0xEF7880
+
+  - name: spinner.actor
+    type: databin
+    start: 0xEF81E0
+
+  - name: spitplt.actor
+    type: databin
+    start: 0xEFA220
+
+  - name: splashes.actor
+    type: databin
+    start: 0xEFB9B0
+
+  - name: splat.actor
+    type: databin
+    start: 0xEFBAA0
+
+  - name: splata.actor
+    type: databin
+    start: 0xEFC090
+
+  - name: splitob.actor
+    type: databin
+    start: 0xEFC580
+
+  - name: spnplat.actor
+    type: databin
+    start: 0xEFC6E0
+
+  - name: spray.actor
+    type: databin
+    start: 0xEFDCC0
+
+  - name: sprkshr.actor
+    type: databin
+    start: 0xEFE2F0
+
+  - name: sprysht.actor
+    type: databin
+    start: 0xEFE700
+
+  - name: sptball.actor
+    type: databin
+    start: 0xEFEC00
+
+  - name: sring.actor
+    type: databin
+    start: 0xEFF070
+
+  - name: ssecret.actor
+    type: databin
+    start: 0xF000B0
+
+  - name: stairex.actor
+    type: databin
+    start: 0xF00910
+
+  - name: stairey.actor
+    type: databin
+    start: 0xF00FE0
+
+  - name: stairseh.actor
+    type: databin
+    start: 0xF014A0
+
+  - name: stairsh.actor
+    type: databin
+    start: 0xF01A50
+
+  - name: stairsw.actor
+    type: databin
+    start: 0xF02020
+
+  - name: stairsx.actor
+    type: databin
+    start: 0xF02410
+
+  - name: stairsy.actor
+    type: databin
+    start: 0xF02A20
+
+  - name: stairsz.actor
+    type: databin
+    start: 0xF03110
+
+  - name: starry.actor
+    type: databin
+    start: 0xF03940
+
+  - name: starz.actor
+    type: databin
+    start: 0xF03F00
+
+  - name: steam.actor
+    type: databin
+    start: 0xF041F0
+
+  - name: steamy.actor
+    type: databin
+    start: 0xF06160
+
+  - name: stitea.actor
+    type: databin
+    start: 0xF07720
+
+  - name: stiteb.actor
+    type: databin
+    start: 0xF07F20
+
+  - name: stmvent.actor
+    type: databin
+    start: 0xF08660
+
+  - name: stop.actor
+    type: databin
+    start: 0xF08740
+
+  - name: stoplit.actor
+    type: databin
+    start: 0xF09140
+
+  - name: swing.actor
+    type: databin
+    start: 0xF0A0E0
+
+  - name: swmgex.actor
+    type: databin
+    start: 0xF0A990
+
+  - name: swmtank.actor
+    type: databin
+    start: 0xF0D1F0
+
+  - name: swrope.actor
+    type: databin
+    start: 0xF0DC50
+
+  - name: tailpuf.actor
+    type: databin
+    start: 0xF0E0D0
+
+  - name: takeout.actor
+    type: databin
+    start: 0xF0E150
+
+  - name: tank.actor
+    type: databin
+    start: 0xF0EBB0
+
+  - name: tankb.actor
+    type: databin
+    start: 0xF105A0
+
+  - name: tankex.actor
+    type: databin
+    start: 0xF10BF0
+
+  - name: taxi.actor
+    type: databin
+    start: 0xF11A50
+
+  - name: tbbttn.actor
+    type: databin
+    start: 0xF135A0
+
+  - name: tbplat.actor
+    type: databin
+    start: 0xF13A00
+
+  - name: teeter.actor
+    type: databin
+    start: 0xF14820
+
+  - name: telepol.actor
+    type: databin
+    start: 0xF14FE0
+
+  - name: theatre.actor
+    type: databin
+    start: 0xF15760
+
+  - name: tikifb.actor
+    type: databin
+    start: 0xF16C30
+
+  - name: tikifc.actor
+    type: databin
+    start: 0xF18080
+
+  - name: tikifir.actor
+    type: databin
+    start: 0xF19230
+
+  - name: tomb.actor
+    type: databin
+    start: 0xF1BAF0
+
+  - name: tomvua.actor
+    type: databin
+    start: 0xF1C580
+
+  - name: tomvub.actor
+    type: databin
+    start: 0xF1CC60
+
+  - name: tomvuc.actor
+    type: databin
+    start: 0xF1D330
+
+  - name: toolbox.actor
+    type: databin
+    start: 0xF1DA00
+
+  - name: toonnob.actor
+    type: databin
+    start: 0xF1E400
+
+  - name: torch.actor
+    type: databin
+    start: 0xF1EBB0
+
+  - name: tower.actor
+    type: databin
+    start: 0xF1F9F0
+
+  - name: towerz.actor
+    type: databin
+    start: 0xF203E0
+
+  - name: trapmuv.actor
+    type: databin
+    start: 0xF213C0
+
+  - name: trapsit.actor
+    type: databin
+    start: 0xF225F0
+
+  - name: treea.actor
+    type: databin
+    start: 0xF23420
+
+  - name: treec.actor
+    type: databin
+    start: 0xF241F0
+
+  - name: tricer.actor
+    type: databin
+    start: 0xF24C90
+
+  - name: trndor.actor
+    type: databin
+    start: 0xF29930
+
+  - name: tstrplt.actor
+    type: databin
+    start: 0xF29F10
+
+  - name: tstrpol.actor
+    type: databin
+    start: 0xF2A9C0
+
+  - name: ttplat.actor
+    type: databin
+    start: 0xF2B650
+
+  - name: tube.actor
+    type: databin
+    start: 0xF2BA40
+
+  - name: tubegls.actor
+    type: databin
+    start: 0xF2C020
+
+  - name: tuxgex.actor
+    type: databin
+    start: 0xF2C360
+
+  - name: tvbutna.actor
+    type: databin
+    start: 0xF35700
+
+  - name: tvend.actor
+    type: databin
+    start: 0xF385B0
+
+  - name: tvgen.actor
+    type: databin
+    start: 0xF399D0
+
+  - name: tvgurny.actor
+    type: databin
+    start: 0xF39AB0
+
+  - name: tvmenu.actor
+    type: databin
+    start: 0xF3AC50
+
+  - name: tvscrho.actor
+    type: databin
+    start: 0xF3AD40
+
+  - name: uranus.actor
+    type: databin
+    start: 0xF3B4D0
+
+  - name: urn.actor
+    type: databin
+    start: 0xF3CCF0
+
+  - name: urnb.actor
+    type: databin
+    start: 0xF3DBB0
+
+  - name: urnc.actor
+    type: databin
+    start: 0xF3E410
+
+  - name: vactube.actor
+    type: databin
+    start: 0xF3EAB0
+
+  - name: vandb.actor
+    type: databin
+    start: 0xF3EC30
+
+  - name: wabrock.actor
+    type: databin
+    start: 0xF3F0F0
+
+  - name: wakwall.actor
+    type: databin
+    start: 0xF3FA50
+
+  - name: warpa.actor
+    type: databin
+    start: 0xF40030
+
+  - name: waterfx.actor
+    type: databin
+    start: 0xF44510
+
+  - name: wbush.actor
+    type: databin
+    start: 0xF455D0
+
+  - name: whack.actor
+    type: databin
+    start: 0xF45B70
+
+  - name: whacka.actor
+    type: databin
+    start: 0xF45E70
+
+  - name: whatway.actor
+    type: databin
+    start: 0xF468A0
+
+  - name: wind.actor
+    type: databin
+    start: 0xF47980
+
+  - name: windfx.actor
+    type: databin
+    start: 0xF47B10
+
+  - name: windsnd.actor
+    type: databin
+    start: 0xF48730
+
+  - name: wlkwy.actor
+    type: databin
+    start: 0xF48890
+
+  - name: wtlimbs.actor
+    type: databin
+    start: 0xF48B30
+
+  - name: wtree.actor
+    type: databin
+    start: 0xF49D70
+
+  - name: wtthree.actor
+    type: databin
+    start: 0xF4B070
+
+  - name: wttwo.actor
+    type: databin
+    start: 0xF4C050
+
+  - name: xa.actor
+    type: databin
+    start: 0xF4D500
+
+  - name: yeild.actor
+    type: databin
+    start: 0xF4E310
+
+  - name: yinyang.actor
+    type: databin
+    start: 0xF4EBA0
+
+  - name: zarchsig.actor
+    type: databin
+    start: 0xF4F500
+
+  - name: zarrow.actor
+    type: databin
+    start: 0xF4F570
+
+  - name: zblocka.actor
+    type: databin
+    start: 0xF50E00
+
+  - name: zblockb.actor
+    type: databin
+    start: 0xF50E70
+
+  - name: zbub.actor
+    type: databin
+    start: 0xF50EE0
+
+  - name: zbubbl.actor
+    type: databin
+    start: 0xF51E90
+
+  - name: zbubblb.actor
+    type: databin
+    start: 0xF52080
+
+  - name: zbubgen.actor
+    type: databin
+    start: 0xF52250
+
+  - name: zcargo.actor
+    type: databin
+    start: 0xF522A0
+
+  - name: zchand.actor
+    type: databin
+    start: 0xF52870
+
+  - name: zcolla.actor
+    type: databin
+    start: 0xF54980
+
+  - name: zcollb.actor
+    type: databin
+    start: 0xF55980
+
+  - name: zcollc.actor
+    type: databin
+    start: 0xF575B0
+
+  - name: zcorala.actor
+    type: databin
+    start: 0xF584B0
+
+  - name: zcoralb.actor
+    type: databin
+    start: 0xF58F90
+
+  - name: zcrap.actor
+    type: databin
+    start: 0xF59A80
+
+  - name: zcrawla.actor
+    type: databin
+    start: 0xF5A210
+
+  - name: zdoor.actor
+    type: databin
+    start: 0xF5C070
+
+  - name: zeela.actor
+    type: databin
+    start: 0xF5C430
+
+  - name: zeelb.actor
+    type: databin
+    start: 0xF5DDF0
+
+  - name: zeelc.actor
+    type: databin
+    start: 0xF5F7B0
+
+  - name: zfisha.actor
+    type: databin
+    start: 0xF61170
+
+  - name: zfishb.actor
+    type: databin
+    start: 0xF61E20
+
+  - name: zfishc.actor
+    type: databin
+    start: 0xF62540
+
+  - name: zfishd.actor
+    type: databin
+    start: 0xF62C70
+
+  - name: zgeyser.actor
+    type: databin
+    start: 0xF63C90
+
+  - name: zgrate.actor
+    type: databin
+    start: 0xF63D10
+
+  - name: ziberg.actor
+    type: databin
+    start: 0xF63F60
+
+  - name: zjumpa.actor
+    type: databin
+    start: 0xF64240
+
+  - name: zjumpb.actor
+    type: databin
+    start: 0xF646D0
+
+  - name: zjumpc.actor
+    type: databin
+    start: 0xF64DD0
+
+  - name: zjumpd.actor
+    type: databin
+    start: 0xF652F0
+
+  - name: zlifep.actor
+    type: databin
+    start: 0xF65690
+
+  - name: zmylot.actor
+    type: databin
+    start: 0xF66040
+
+  - name: zomarm.actor
+    type: databin
+    start: 0xF67B00
+
+  - name: zombie.actor
+    type: databin
+    start: 0xF684C0
+
+  - name: zomleg.actor
+    type: databin
+    start: 0xF6CD00
+
+  - name: zomzap.actor
+    type: databin
+    start: 0xF6D140
+
+  - name: zomzapa.actor
+    type: databin
+    start: 0xF6DAA0
+
+  - name: zomzapb.actor
+    type: databin
+    start: 0xF6E170
+
+  - name: zomzapc.actor
+    type: databin
+    start: 0xF6E840
+
+  - name: zomzapd.actor
+    type: databin
+    start: 0xF6EF20
+
+  - name: zrocka.actor
+    type: databin
+    start: 0xF6F600
+
+  - name: zrockb.actor
+    type: databin
+    start: 0xF6FC40
+
+  - name: zshark.actor
+    type: databin
+    start: 0xF702B0
+
+  - name: zsign.actor
+    type: databin
+    start: 0xF713D0
+
+  - name: zstmbub.actor
+    type: databin
+    start: 0xF719F0
+
+  - name: zstmvent.actor
+    type: databin
+    start: 0xF78B00
+
+  - name: zswchh.actor
+    type: databin
+    start: 0xF78CA0
+
+  - name: zswchm.actor
+    type: databin
+    start: 0xF79390
+
+  - name: ztitan.actor
+    type: databin
+    start: 0xF79930
+
+  - name: ztrunk.actor
+    type: databin
+    start: 0xF7A580
+
+  - name: zturtle.actor
+    type: databin
+    start: 0xF7AD40
+
+  - name: zviolet.actor
+    type: databin
+    start: 0xF7CA10
+
+  - name: zweed.actor
+    type: databin
+    start: 0xF7DAB0
+
+  - name: zweeda.actor
+    type: databin
+    start: 0xF7E920
+
+  - name: zweedb.actor
+    type: databin
+    start: 0xF7F730
+
+  - name: zweedc.actor
+    type: databin
+    start: 0xF80540
+
+  - name: zwleak.actor
+    type: databin
+    start: 0xF81350
+
+  - [0xF821C0]

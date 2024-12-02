@@ -9,7 +9,7 @@ AS = $(CROSS)as.exe
 OBJCOPY = $(CROSS)objcopy.exe
 ASFLAGS = -march=vr4300 -mtune=vr4300 -Iinclude -no-pad-sections
 
-LD = $(CROSS)ld.exe
+LD = tools/mips64-elf-ld.exe
 
 default: all
 
@@ -21,7 +21,7 @@ $(ASMOBJECTS): $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
 rom.elf: $(ASMOBJECTS)
-	$(LD) -Map gexenterthegecko.map $(ASMOBJECTS) -T gexenterthegecko.ld -T symbol_addrs.txt -o $@
+	$(LD) -Map gexenterthegecko.map $(ASMOBJECTS) -T gexenterthegecko.ld -T undefined_funcs_auto.txt -T undefined_syms_auto.txt -o $@
 
 split:
 	cmd.exe /c splat split gexenterthegecko.yaml

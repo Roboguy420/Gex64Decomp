@@ -1,8 +1,45 @@
-.L8015F5C4_C0014 = 0x8015F5C4; // type:func segment:map_code
-.L8015F5C4_CCE44 = 0x8015F5C4; // type:func segment:prehst_code
-.L80161384_CEC04 = 0x80161384; // type:func segment:prehst_code
-.L80161384_88564 = 0x80161384; // type:func segment:circuit_code
-.L80159790_EC5A0 = 0x80159780; // type:func segment:logo_code
-.L80159790_8A930 = 0x80159780; // type:func segment:final_code
-.L8015998C_EC5A0 = 0x8015998C; // type:func segment:logo_code
-.L8015998C_D9FFC = 0x8015998C; // type:func segment:rta_code
+.L8015F5C4_C0014 = 0x8015F5C4; // type:label segment:map_code
+.L8015F5C4_CCE44 = 0x8015F5C4; // type:label segment:prehst_code
+.L80161384_CEC04 = 0x80161384; // type:label segment:prehst_code
+.L80161384_88564 = 0x80161384; // type:label segment:circuit_code
+.L80159790_EC5A0 = 0x80159790; // type:label segment:logo_code
+.L80159790_8A930 = 0x80159790; // type:label segment:final_code
+.L8015998C_EC79C = 0x8015998C; // type:label segment:logo_code
+.L8015998C_D9FFC = 0x8015998C; // type:label segment:rta_code
+
+func_80069398 = 0x80069398; // type:func
+
+osInvalDCache = 0x80056F50; // type:func
+osInvalICache = 0x80057000; // type:func
+osWritebackDCache = 0x800570E0; // type:func
+osWritebackDCacheAll = 0x80057160; // type:func
+
+strchr = 0x8005C200; // type:func
+strlen = 0x8005C238; // type:func
+strncpy = 0x8005C25C; // type:func
+
+__osExceptionPreamble = 0x8005CF10; // type:func
+__ptExceptionPreamble = 0x8005CF20; // type:func
+__ptException = 0x8005CF40; // type:func
+__osException = 0x8005CFE4; // type:func
+send_mesg = 0x8005D90C; // type:func
+handle_CpU = 0x8005D9C8; // type:func
+__osEnqueueAndYield = 0x8005D9FC; // type:func
+__osEnqueueThread = 0x8005DB04; // type:func
+__osPopThread = 0x8005DB4C; // type:func
+__osDispatchThread = 0x8005DB5C; // type:func
+__osCleanupThread = 0x8005DCD8; // type:func
+__osGetSR = 0x8005DCF0; // type:func
+__osDisableInt = 0x8005DD00; // type:func
+__osRestoreInt = 0x8005DD20; // type:func
+__osProbeTLB = 0x8005DD40; // type:func
+osSetIntMask = 0x8005DE00; // type:func
+__osSetFpcCsr = 0x8005DEA0; // type:func
+__osSetSr = 0x8005DEB0; // type:func
+__osMapTLBRdb = 0x8005DEC0; // type:func
+
+_bcopy = 0x800655E0; // type:func
+
+__osGetCause = 0x80066330; // type:func
+//__osGetCount = 0x80066340; // type:func
+__osSetCompare = 0x80066350; // type:func

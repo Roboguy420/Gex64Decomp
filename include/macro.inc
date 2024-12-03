@@ -17,6 +17,10 @@
 \label:
 .endm
 
+.macro move a, b
+    addu \a, \b, $zero
+.endm
+
 .set $fv0,          $f0
 .set $fv0f,         $f1
 .set $fv1,          $f2

@@ -18,6 +18,7 @@ options:
 
   find_file_boundaries: True
   header_encoding: ASCII
+  migrate_rodata_to_functions: True
 
   o_as_suffix: True
   use_legacy_include_asm: False
@@ -73,7 +74,7 @@ segments:
     symbol_name_format: $VRAM
     bss_size: 0xDA3E0
     subsegments:
-      - [0x1050, asm, _1050]
+      - [0x1050, c, _1050]
       - [0x7FB0, asm, _7fb0]
       - [0xBE60, asm, _be60]
       - [0xD6F0, asm]
@@ -113,7 +114,9 @@ segments:
       - [0x3EAA0, asm]
       - [0x405D0, asm]
       - [0x40D70, asm, _40d70]
-      - [0x42BD0, asm, _47260]
+      - [0x42BD0, asm]
+      - [0x4A780, c, _4a780]
+      - [0x4F810, asm]
       - [0x579B0, asm]
       - [0x57B50, hasm, ultralib/invaldcache]
       - [0x57C00, hasm, ultralib/invalicache]
@@ -242,7 +245,7 @@ segments:
       - [0x6B5F0, asm]
       - [0x6B6F0, textbin]
       - [0x6B920, data]
-      - [0x7C040, rodata, _1050]
+      - [0x7C040, .rodata, _1050]
       - [0x7C3B0, rodata, _7fb0]
       - [0x7C4F0, rodata, _be60]
       - [0x7C8F0, rodata, _1a6a0]
@@ -251,7 +254,9 @@ segments:
       - [0x7CAC0, rodata, _2cd50]
       - [0x7CAE0, rodata, _31960]
       - [0x7EF80, rodata, _40d70]
-      - [0x7F320, rodata, _47260]
+      #- [0x7F320, rodata]
+      - [0x7F340, .rodata, _4a780]
+      - [0x7F6C0, rodata]
       - [0x7F8C0, rodata, _58850]
       - [0x7F8E0, rodata, _59500]
       - [0x7F8F0, rodata, _5c800]

@@ -1,35 +1,39 @@
 
 BUILD_DIR = build
 ASMSOURCES := $(shell find asm -not \( -path asm/nonmatchings -prune \) -name "*.s")
-CSOURCES := $(shell find src -name *.c)
-ASMDIRS := $(sort $(dir $(ASMSOURCES)))
-CDIRS := $(sort $(dir $(CSOURCES)))
 ASMOBJECTS := $(addprefix $(BUILD_DIR)/, $(patsubst %.s, %.o, $(ASMSOURCES)))
-COBJECTS := $(addprefix $(BUILD_DIR)/, $(patsubst %.c, %.o, $(CSOURCES)))
 
-AS = tools/as
+MIPS1SOURCES := $(shell cat mips1.source.txt)
+MIPS1OBJECTS := $(addprefix $(BUILD_DIR)/, $(patsubst %.c, %.o, $(MIPS1SOURCES)))
+MIPS3SOURCES := $(shell cat mips3.source.txt)
+MIPS3OBJECTS := $(addprefix $(BUILD_DIR)/, $(patsubst %.c, %.o, $(MIPS3SOURCES)))
+COBJECTS := $(MIPS1OBJECTS) $(MIPS3OBJECTS)
+
+AS = tools/mips64-elf-as.exe
 OBJCOPY = tools/mips64-elf-objcopy.exe
-COMMONFLAGS = -mabi=32 -mips3 -mfp32 -mgp32
-ASFLAGS = -march=vr4300 -mtune=vr4300 -Iinclude -no-pad-sections -G0 $(COMMONFLAGS)
+COMMONFLAGS = -mabi=32 -mfp32 -mgp32 -Iinclude
+ASFLAGS = -mtune=vr4300 -march=vr4300 -no-pad-sections -mips3 -G0 $(COMMONFLAGS)
 CC = tools/gcc
-CFLAGS = -Iinclude -c -O2 -nostdinc -fno-PIC -G 0 -mno-abicalls -g3 $(COMMONFLAGS)
+CDEFINES = -DNUM_LEVELS=32
+CFLAGS = -nostdinc -c -O2 -G0 $(CDEFINES) $(COMMONFLAGS) -Btools/
 LD = tools/mips64-elf-ld.exe
 
 default: all
 
-all: clean split rom.z64
-
-vpath %.s $(ASMDIRS)
-vpath %.s $(CDIRS)
+all: clean split build diff
 
 $(ASMOBJECTS): $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-$(COBJECTS): $(BUILD_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) $< -o $@
+$(MIPS1OBJECTS): $(BUILD_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -mips1 $< -o $@
+
+$(MIPS3OBJECTS): $(BUILD_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -mips3 $< -o $@
 
 rom.elf: $(ASMOBJECTS) $(COBJECTS)
-	$(LD) -Map gexenterthegecko.map $(ASMOBJECTS) $(COBJECTS) -T gexenterthegecko.ld -T undefined_funcs_auto.txt -T undefined_syms_auto.txt -o $@
+	$(info Linking elf file...)
+	@$(LD) -Map gexenterthegecko.map $(ASMOBJECTS) $(COBJECTS) -T gexenterthegecko.ld -T undefined_funcs_auto.txt -T undefined_syms_auto.txt -o $@
 
 split:
 	python3 -m splat split gexenterthegecko.yaml

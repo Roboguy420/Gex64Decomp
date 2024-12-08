@@ -9,14 +9,24 @@
 
 func_80069398 = 0x80069398; // type:func
 
+// Insert real functions from this point on
+
+IsLooneyLoading = 0x800013A8; // type:func
+
+GetRemoteCount = 0x8001A310; // type:func
+
+cstrcmp = 0x8003E9E0; // type:func
+GetLevelIndexFromId = 0x8004B520; // type:func
+GetRedRemotesForLevel = 0x8004B5D4; // type:func
+
 osInvalDCache = 0x80056F50; // type:func
 osInvalICache = 0x80057000; // type:func
 osWritebackDCache = 0x800570E0; // type:func
 osWritebackDCacheAll = 0x80057160; // type:func
 
-strchr = 0x8005C200; // type:func
-strlen = 0x8005C238; // type:func
-strncpy = 0x8005C25C; // type:func
+cstrchr = 0x8005C200; // type:func
+cstrlen = 0x8005C238; // type:func
+cstrncpy = 0x8005C25C; // type:func
 
 __osExceptionPreamble = 0x8005CF10; // type:func
 __ptExceptionPreamble = 0x8005CF20; // type:func
@@ -38,8 +48,16 @@ __osSetFpcCsr = 0x8005DEA0; // type:func
 __osSetSr = 0x8005DEB0; // type:func
 __osMapTLBRdb = 0x8005DEC0; // type:func
 
+ctoupper = 0x8006A4D0; // type:func
+
 _bcopy = 0x800655E0; // type:func
 
 __osGetCause = 0x80066330; // type:func
 //__osGetCount = 0x80066340; // type:func
 __osSetCompare = 0x80066350; // type:func
+
+TVTextInformation = 0x800782A8; // size:0x2E8
+
+gpGameState4 = 0x8006FCC4; // type:GameState*
+gpGameState8 = 0x8006FCC8; // type:GameState*
+gGameState = 0x800C0AC0; // size:0x4cd8 segment:main

@@ -1,7 +1,34 @@
 #include "common.h"
 
-INCLUDE_ASM("asm/nonmatchings/5CE00", strchr);
+unsigned char* cstrchr(unsigned char* str, unsigned char c) {
 
-INCLUDE_ASM("asm/nonmatchings/5CE00", strlen);
+    while(*str != c)
+    {
+        if (*str == '\0')
+            return NULL;
 
-INCLUDE_ASM("asm/nonmatchings/5CE00", strncpy);
+        ++str;
+    }
+
+    return str;
+}
+
+int cstrlen(unsigned char* str) {
+
+   unsigned char* c = str;
+   while(*c != 0U)
+       c++;
+
+   return c - str;
+}
+
+char* cstrncpy(unsigned char* dst, char* src, int len) {
+    int i;
+    char* c = dst;
+
+    for (i = len; i != 0; i--) {
+        *(c++) = *(src++);
+    }
+
+    return dst;
+}

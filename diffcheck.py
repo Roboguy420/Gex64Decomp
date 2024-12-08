@@ -4,7 +4,7 @@ with open("gex64.z64", "rb") as f:
 with open("rom.z64", "rb") as f:
     new = f.read()
 
-diffFound = False
+diffFound = None
 
 try:
     for i in range(0, 0x1_000_000, 4):
@@ -15,17 +15,14 @@ try:
             if oB[j] != nB[j]:
                 d += 1
         if d == 4:
-            print(f"Major Difference at: {hex(i)}")
-            diffFound = True
+            diffFound = f"Major Difference at: {hex(i)}"
             break
         elif d > 0:
-            print(f"Minor Difference at: {hex(i)}")
-            diffFound = True
-            break
+            diffFound = f"Minor Difference at: {hex(i)}"
 
 except:
-    print("Error diffing! Maybe file sizes are different?")
-    diffFound = True
+    diffFound = "Error diffing! Maybe file sizes are different?"
 
 if not diffFound:
-    print("No differences found!")
+    diffFound = "No differences found!"
+print(diffFound)

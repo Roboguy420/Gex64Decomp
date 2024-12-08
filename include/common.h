@@ -35,4 +35,8 @@ __asm__(".include \"include/macro.inc\"\n");
 #define FALSE 0
 #endif
 
+#ifndef BOOL
+#define BOOL int
+#endif
+
 #endif

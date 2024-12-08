@@ -4,7 +4,7 @@ W.I.P. decompilation of Gex 64
 
 ## Dependencies
 
-* Python 3.11+ and splat64[mips] v0.30.1
+* Python 3.11+, and install the required modules via `python3 -m pip install -r requirements.txt`
 * Bash or WSL if on Windows. Untested on Linux.
     * Note that the files should be in your home directory if using Windows (`/home/(you)/Gex64Decomp`) rather than on a Windows directory. GCC doesn't like it, for some reason.
 * Make
@@ -18,4 +18,10 @@ W.I.P. decompilation of Gex 64
     * `make diff` can be used to see if the rom has any differences to the original rom. Preferably, they should match.
 
 ## Contributing
-Swap out `asm` segments in `gexenterthegecko.yaml` with `c`, and split again. Once a file is completed (either completely or up to a reasonable point), you can create a Pull Request, as long as the diffing tool says the roms are matching after a clean build. For more information on how to process the files, visit [the Splat64 wiki](https://github.com/ethteck/splat/wiki/General-Workflow) and [decomp.me](https://decomp.me/), using the `Duke Nukem Zero Hour` preset, or the flags `-O2 -nostdinc -fno-PIC -G 0 -mno-abicalls -g3 -mips3 -mfp32 -mgp32` and compiler `GCC 2.7.2 (KMC)`.
+Swap out `asm` segments in `gexenterthegecko.yaml` with `c`, and split again. Once a file is completed up to a certain point, you can create a Pull Request, as long as the diffing tool says the roms are matching after a clean build. For more information on how to process the files, visit [the Splat64 wiki](https://github.com/ethteck/splat/wiki/General-Workflow) and [decomp.me](https://decomp.me/).
+
+The flags this build uses is generally just `-O2`, with `-g3` for temporary help on decomp.me (if you're getting extra `nop`s, remove it), and some files require -mips3 to compile, but most of the game compiles without it.
+
+There is currently no naming scheme, but at the very least:
+* Global functions should be named in PascalCase
+* Enums follow a `EEnumType` form, and each entry follows a shorter `EET_EntryName`. See `TVTextData.h`.

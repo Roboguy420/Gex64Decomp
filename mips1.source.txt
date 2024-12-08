@@ -1,1 +1,1 @@
-src/_4a780.c src/_1050.c 
+src/_4a780.c src/_1050.c src/1A6A0.c

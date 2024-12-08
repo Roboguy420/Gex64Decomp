@@ -11,7 +11,7 @@ W.I.P. decompilation of Gex 64
 
 ## Setup
 
-1. Procure your legal ROM of Gex 64: Enter the Gecko (USA) and place it into the root folder, and rename it to `gex64.z64`.
+1. Procure your legal ROM of Gex 64: Enter the Gecko (USA) and place it into the repo's root folder, and rename it to `gex64.z64`.
     * It must be a big endian rom in the z64 format. If you have a .n64 or other copy, it can be converted online.
 2. Open a shell in the root folder and run the `make clean`, followed by the `make split` command. This will generate any required files.
     * `make build` will assemble the assembly files, compile the source files, link them together and create the new .z64 rom file.

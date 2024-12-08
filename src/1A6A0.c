@@ -3,7 +3,24 @@
 #include "types/GameState.h"
 #include "types/Remotes.h"
 
-INCLUDE_ASM("asm/nonmatchings/1A6A0", func_80019AA0);
+extern int D_800D1810;
+extern int D_800E5FDC;
+extern int D_800EB8A0;
+extern int D_8014F35C;
+extern int D_801539BC;
+extern int D_80153A54;
+void func_80019AA0(void) {
+    int temp_v0;
+
+    D_800E5FDC = func_80030BE0(0x10C);
+    D_800D1810 = func_80030BE0(0x66B0);
+    temp_v0 = func_80030BE0(0x11420);
+    D_800EB8A0 = temp_v0;
+    D_801539BC = temp_v0;
+    D_80153A54 = func_80030BE0(0x2710);
+    D_8014F35C = func_80030BE0(0x10);
+    func_80030C50(0x10);
+}
 
 INCLUDE_ASM("asm/nonmatchings/1A6A0", func_80019B1C);
 

@@ -573,7 +573,6 @@ int func_8004E568(int* arg1, int* arg2) {
     return 1;
 }
 
-
 extern func_80039688(char, char, char, int);                   
 
 int func_8004E580(int arg0, char* arg1) {

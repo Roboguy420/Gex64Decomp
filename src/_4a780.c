@@ -1,5 +1,6 @@
 #include "common.h"
 
+#include "types/GameState.h"
 #include "types/TVTextData.h"
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_80049B80);
@@ -471,7 +472,22 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E3C8);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E3E8);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E408);
+void func_8004EBAC(void*, void*, void*);
+
+int func_8004E408(void* arg0, int** arg1) {
+    int temp_a1;
+    int* temp_v0;
+
+    temp_v0 = arg1[1];
+    if ((temp_v0 != 0) && (temp_v0[7] & 8)) {
+        temp_a1 = arg1[2];
+        if (temp_a1 != 0) {
+            func_8004EBAC(arg0, temp_a1, 0);
+            return 0;
+        }
+    }
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E468);
 
@@ -483,7 +499,12 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E540);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E568);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E580);
+extern func_80039688(char, char, char, int);                   
+
+int func_8004E580(int arg0, char* arg1) {
+    func_80039688(arg1[4], arg1[5], arg1[6], gpGameState8);
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E5B8);
 

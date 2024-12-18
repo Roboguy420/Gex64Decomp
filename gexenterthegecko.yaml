@@ -472,14 +472,14 @@ segments:
       - [0xECE80, rodata, _ec530]
       - { type: bss, 0x8015A2E0 }
 
-  - name: extra_functions
+  - name: zlib
     type: code
     start: 0xED0F0
     vram: 0x801DA800
-    exclusive_ram_id: _extra_functions
+    exclusive_ram_id: _zlib
     subsegments:
-      - [0xED0F0, asm, _ed0f0]
-      - [0xEEE40, rodata, _ed0f0]
+      - [0xED0F0, c, zlib]
+      - [0xEEE40, .rodata, zlib]
 
   - name: n64_ptr_tables_v2_1
     type: databin

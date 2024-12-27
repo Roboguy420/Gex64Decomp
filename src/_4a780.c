@@ -1,5 +1,7 @@
 #include "common.h"
+#include "_4a780.h"
 
+#include "types/GameState.h"
 #include "types/TVTextData.h"
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_80049B80);
@@ -44,7 +46,9 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004AA70);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004AAA8);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004AADC);
+int func_8004AADC(void) {
+    return 0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004AAE4);
 
@@ -272,9 +276,19 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C2F4);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C350);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C43C);
+extern int D_8007864C[];
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C464);
+void func_8004C43C() {
+    int i;
+    
+    for (i = 0x20; i < 0x24; ++i)
+        D_8007864C[i-0x20] = 0;
+}
+
+int func_8004C464(int** arg1, int** arg2) {
+    arg2[1][7] |= 0x80;                    
+    return 1;     
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C484);
 
@@ -290,7 +304,9 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C634);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C664);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C66C);
+int func_8004C66C(void) {
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C674);
 
@@ -298,15 +314,25 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C6A0);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C6CC);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C6F0);
+int func_8004C6F0(void) {
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C6F8);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C71C);
+int func_8004C71C(char* arg0, int* arg1) {
+    arg0[79] = arg1[1];
+    
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C730);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C760);
+int func_8004C760(int* arg1, int* arg2) {
+    arg1 = (int*)arg2[1];
+    func_80003D4C(arg1);
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C784);
 
@@ -342,7 +368,14 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CBAC);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CBEC);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CC2C);
+int func_8004CC2C(int* arg1, int* arg2) {
+    if (arg2[1] > 0) {
+        --arg2[1];
+        return 1;
+    }
+   
+    return 0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CC54);
 
@@ -374,9 +407,17 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D160);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D184);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D1A8);
+// Unsets a flag?
+int func_8004D1A8(int* arg1, int* arg2) {
+    *(int*)arg2[1] &= ~2;
+    return 1;
+}
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D1C8);
+// Sets a flag?
+int func_8004D1C8(int* arg1, int* arg2) {
+    *(int*)arg2[1] |= 2;
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D1E8);
 
@@ -400,7 +441,10 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D46C);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D4B0);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D4F4);
+int func_8004D4F4(int *arg1, int** arg2) {
+    func_8004EBAC(arg1, arg2[1], 0);
+    return 0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D51C);
 
@@ -458,17 +502,32 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E318);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E33C);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E360);
+int func_8004E360(int arg1, int* arg2) {
+    arg1 = arg2[1];
+    func_80052A7C(arg1);
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E384);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E3A8);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E3C8);
+int func_8004E3C8(void) {
+    func_80052F58();
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E3E8);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E408);
+int func_8004E408(void* arg0, int** arg1) {
+    if ((arg1[1] != 0) && (arg1[1][7] & 8)) {
+        if (arg1[2] != NULL) {
+            func_8004EBAC(arg0, arg1[2], 0);
+            return 0;
+        }
+    }
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E468);
 
@@ -478,9 +537,17 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E51C);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E540);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E568);
+int func_8004E568(int* arg1, int* arg2) {
+    int* temp1 = (int*)arg2[1];
+    int temp2 = arg2[2];
+    temp1[1] = temp2; 
+    return 1;
+}             
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E580);
+int func_8004E580(int arg0, char* arg1) {
+    func_80039688(arg1[4], arg1[5], arg1[6], gpGameState8);
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E5B8);
 
@@ -502,7 +569,12 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E9A8);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E9BC);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E9D0);
+extern int D_8015EE2C;
+
+int func_8004E9D0(int* arg1, int* arg2) {
+    D_8015EE2C = arg2[1];
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E9E4);
 
@@ -512,6 +584,8 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004EA2C);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004EA58);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004EBAC);
+void func_8004EBAC(void* arg0, void* arg1, void* arg2) {
+    func_8004EA58(arg0, arg1, 1, arg2);
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004EBD0);

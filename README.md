@@ -8,6 +8,7 @@ W.I.P. decompilation of Gex 64
 ## Setup
 
 1. Pull the docker image and run it: `docker run --name g64d -it matbourgon/gex64-decomp:latest`
+    * You can re-attach to an existing container with this command: `docker attach -ia g64d`
 2. Procure your legal ROM of Gex 64: Enter the Gecko (USA) and place it into the repo's root folder, and rename it to `gex64.z64`.
     * It must be a big endian rom in the z64 format. If you have a .n64 or other copy, it can be converted online.
     * If you have it locally, you can copy it into the docker container with the following command: `docker cp /path/to/file g64d://home/Gex64Decomp/gex64.z64`

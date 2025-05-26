@@ -3,7 +3,12 @@
 W.I.P. decompilation of Gex 64
 
 ## Prerequisites
+### With Docker
 * Docker
+  
+### Without Docker
+* python3 & pip
+* binutils-mips-linux-gnu
 
 ## Setup
 

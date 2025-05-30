@@ -300,9 +300,22 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C558);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C598);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C634);
+int func_8004C634(int* arg1, int* arg2) {
+    int* var1;
+    int* var2;
+    
+    var1 = (int*)arg2[1]; 
+    arg1 = (int*)var1[9];
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C664);
+     if (arg1 != 0) {
+        (int)arg2 = arg1[4] &= 0xFDFFFFFF;
+    }
+    return 1;
+}
+
+int func_8004C664(void) {
+    return 1;
+}
 
 int func_8004C66C(void) {
     return 1;
@@ -312,7 +325,21 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C674);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C6A0);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004C6CC);
+int func_8004C6CC(int* arg1, int* arg2) {
+    int* var1;
+    int* var2;
+
+
+    (int)var2 = arg2[1];
+    
+    if (var2 != 0) 
+    {
+        (int)var1 = var2[2];
+        var2[11] = arg2[2];
+         
+    }
+    return 1;
+}
 
 int func_8004C6F0(void) {
     return 1;
@@ -405,7 +432,10 @@ int func_8004D110(int* arg0) {
     return 1;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D128);
+int func_8004D128(int* arg0) {
+    arg0[4] &= 0xDFFFFFFF;
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D144);
 
@@ -452,9 +482,13 @@ int func_8004D4F4(int *arg1, int** arg2) {
     return 0;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D51C);
+int func_8004D51C(void) {
+    return 1;
+}
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D524);
+int func_8004D524(void) {
+    return 0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D52C);
 
@@ -486,7 +520,7 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D8DC);
 extern int func_80033334(int* arg);                               /* extern */
 
 int func_8004D944(int* arg0, int* arg1) {
-    arg0 = arg1[1];
+    (int)arg0 = arg1[1];
     func_80033334(arg0);
     return 1;
 }
@@ -522,16 +556,16 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E2D8);
 extern int func_80052944(int arg0);                               /* extern */
 
 int func_8004E318(int* arg1, int* arg2) {
-    arg1 = arg2[1];
-    func_80052944(arg1);
+    (int)arg1 = arg2[1];
+    func_80052944((int)arg1);
     return 1;
 }
 
 extern int func_8005294C(int arg0);                               /* extern */
 
 int func_8004E33C(int* arg1, int* arg2) {
-    arg1 = arg2[1];
-    func_8005294C(arg1);
+    (int)arg1 = arg2[1];
+    func_8005294C((int)arg1);
     return 1;
 }
 
@@ -544,8 +578,8 @@ int func_8004E360(int arg1, int* arg2) {
 extern int func_80052AA8(int* arg0);                               /* extern */
 
 int func_8004E384(int* arg1, int* arg2) {
-    arg1 = arg2[1];
-    func_80052AA8(arg1);
+    (int)arg1 = arg2[1];
+    func_80052AA8((int*)arg1);
     return 1;
 }
 
@@ -611,12 +645,18 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E95C);
 extern int D_8015EE24;
 
 int func_8004E9A8(int* arg1, int* arg2) {
-    int* var0 = arg2[1];
-    D_8015EE24 = var0;
+    int* var0 = (int*)arg2[1];
+    D_8015EE24 = (int)var0;
     return 1;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E9BC);
+extern int D_8015EE28; /* extern */
+
+int func_8004E9BC(int* arg1, int* arg2) {
+    int var1 = arg2[1];
+    D_8015EE28 = var1;
+    return 1;
+}
 
 extern int D_8015EE2C;
 
@@ -633,8 +673,23 @@ int func_8004E9E4(int arg1, int* arg2) {
     return 1;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E9F8);
+int func_8004E9F8(int* arg1, int* arg2) {
+    int* temp_v0;
+    int* temp_v1;
 
+    temp_v1 = (int*)arg2[2];
+    if (temp_v1 != 0) {
+        temp_v0 = (int*)temp_v1[9];
+        
+        if (temp_v0 != 0) {
+        temp_v1 =  (int*)arg2[1];
+        (int*)temp_v0[72] = temp_v1;
+        }
+    } 
+    
+    
+    return 1;
+}
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004EA2C);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004EA58);
@@ -643,4 +698,19 @@ void func_8004EBAC(void* arg0, void* arg1, void* arg2) {
     func_8004EA58(arg0, arg1, 1, arg2);
 }
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004EBD0);
+typedef struct
+{
+    int* ptr;
+    int value;
+} func_8004EBD0_t;
+
+int func_8004EBD0(func_8004EBD0_t* arg0) {
+    if (arg0 == NULL)
+        return;
+    
+    while (arg0->ptr != NULL)
+    {
+        *arg0->ptr = arg0->value;
+        arg0++;
+    }
+}

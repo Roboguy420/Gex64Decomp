@@ -58,7 +58,25 @@ int func_8004AADC(void) {
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004AAE4);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004AC10);
+int func_8004AC10(int *arg0, int unused, int arg2, int arg3) {
+    int var1 = 2;
+    int var2 = arg2 < 0 ? arg2 + 3 : arg2;
+    int msb;
+
+    if (arg3 < (var2 >> 2))
+        var1 = 1;
+
+    msb = (unsigned int)arg2 >> 31;
+    if (arg3 < ((arg2 + msb) >> 1)) {
+
+        if (arg3 & var1) {
+            arg0[4] |=  0x800;  
+        } else {
+            arg0[4] &= ~0x800;    
+        }
+    }
+}
+
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004AC78);
 
@@ -402,7 +420,18 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CAAC);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CAD0);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CB10);
+extern int func_80050854(int*, int**);  // External function
+
+int func_8004CB10(int* arg1, int** arg2) {
+    int* var1[5];
+
+    var1[1] = arg2[0];
+    var1[2] = arg2[1];
+
+    func_80050854(arg1, var1);
+
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CB44);
 

@@ -515,6 +515,17 @@ int func_8004D1C8(int* arg1, int* arg2) {
     return 1;
 }
 
+typedef struct
+{
+    int _0000; // Subject to change, this is here to pad 32 bits at the start of the struct
+    unsigned char _0004;
+    unsigned char _0005;
+    unsigned char _0006;
+    void* _0008;
+} _4a780_t;
+
+extern int D_800785CC[];
+
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D1E8);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D208);
@@ -523,7 +534,10 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D240);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D298);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D2F8);
+int func_8004D2F8(int arg0, _4a780_t* arg1) {
+    D_800785CC[arg1->_0004] = D_800785CC[arg1->_0005] ^ D_800785CC[arg1->_0006];
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D33C);
 
@@ -533,9 +547,15 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D41C);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D444);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D46C);
+int func_8004D46C(int arg0, _4a780_t* arg1) {
+    D_800785CC[arg1->_0004] = D_800785CC[arg1->_0005] + D_800785CC[arg1->_0006];
+    return 1;
+}
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D4B0);
+int func_8004D4B0(int arg0, _4a780_t* arg1) {
+    D_800785CC[arg1->_0004] = D_800785CC[arg1->_0005] - D_800785CC[arg1->_0006];
+    return 1;
+}
 
 int func_8004D4F4(int *arg1, int** arg2) {
     func_8004EBAC(arg1, arg2[1], 0);
@@ -694,9 +714,21 @@ int func_8004E580(int arg0, char* arg1) {
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E5B8);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E768);
+int func_8004E768(void* arg0, _4a780_t* arg1) {
+    if (D_800785CC[arg1->_0004] != 0 && arg1->_0008 != 0) {
+        func_8004EBAC(arg0, arg1->_0008, 0);
+        return 0;
+    }
+    return 1;
+}
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E7C8);
+int func_8004E7C8(void* arg0, _4a780_t* arg1) {
+    if (D_800785CC[arg1->_0004] == 0 && arg1->_0008 != 0) {
+        func_8004EBAC(arg0, arg1->_0008, 0);
+        return 0;
+    }
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E828);
 

@@ -1,5 +1,6 @@
 #include "common.h"
 #include "types/GameState.h"
+#include "types/G2String.h"
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80041FD0);
 
@@ -116,15 +117,6 @@ INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047904);
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_800479AC);
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047D10);
-
-typedef union
-{
-    char cstr[8];
-    unsigned int raw[2];
-} G2String;
-
-// tomsons26: May be a memcmp; todo: test when memcmp found
-#define G2String_Compare(a, b) ((a->raw[0] == ((G2String*)b)->raw[0]) && (a->raw[1] == ((G2String*)b)->raw[1]))
 
 extern int D_800785CC[];
 extern char D_8007E720[8]; // "fpower__"

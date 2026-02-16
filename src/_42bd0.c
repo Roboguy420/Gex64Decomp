@@ -112,7 +112,27 @@ INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047724);
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047768);
 
-INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047904);
+void func_80047904(int** arg0, int arg1, int arg2) {
+    int* iVar1;
+
+    iVar1 = arg0[6];
+    func_80046CB0();
+
+    if (iVar1[12] & 0x100)
+    {
+        func_800473A4(arg0, arg1, arg2);
+    }
+    else if (iVar1[12] & 0x200)
+    {
+        func_80046AA0(arg0, arg2);
+        func_80046CE4(arg0);
+    }
+    else
+    {
+        func_80047768(arg0, arg1, arg2, 1);
+    }
+    
+}
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_800479AC);
 

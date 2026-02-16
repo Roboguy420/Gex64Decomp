@@ -622,7 +622,21 @@ int func_8004DA58(void) {
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004DA60);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004DAB0);
+// Future note: arg1 may be [this], arg2 may be a nested struct
+int func_8004DAB0(void* arg1, int** arg2) {
+    int length;
+    int index;
+    int** ptr;
+
+    length = arg2[1][0];
+    ptr = ((int**)&arg2[1][1]);
+    
+    for (index = 0; index < length; ++index) {
+        ptr[index][7] = (ptr[index][7] & ~0x80);
+    }
+    return 1;
+}
+
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004DB04);
 

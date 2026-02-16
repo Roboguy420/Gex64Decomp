@@ -587,7 +587,48 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D760);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D794);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D83C);
+typedef struct
+{
+    short a;
+    short b;
+    int c;
+    int d;
+} func_8004D83C_t_1;
+
+extern func_8004D83C_t_1 D_800EB9B0[];
+
+typedef struct
+{
+    int _;
+    short unk4;
+    short unk6;
+    int unk8;
+    int unkC;
+} func_8004D83C_t_2;
+
+int func_8004D83C(int* arg1, func_8004D83C_t_2* arg2) {
+    int temp_a0;
+    int temp_a2;
+    short temp_v2;
+    short temp_v0;
+
+    temp_v0 = arg2->unk4;
+    temp_a0 = arg2->unk8;
+    temp_a2 = arg2->unkC;
+    temp_v2 = arg2->unk6;
+    
+    if (temp_v0 < 0x10U) {
+        (D_800EB9B0)[temp_v0].a = temp_v2;
+        if (temp_a0 != 0) {
+            (D_800EB9B0)[temp_v0].c = temp_a0 + 4;
+        }
+        if (temp_a2 != 0) {
+            (D_800EB9B0)[temp_v0].d = temp_a2 + 4;
+        }
+    }
+    return 1;
+}
+
 
 extern int D_800EB9B4[];
 extern int D_800EB9B8[];

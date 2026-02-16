@@ -420,8 +420,6 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CAAC);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004CAD0);
 
-extern int func_80050854(int*, int**);  // External function
-
 int func_8004CB10(int* arg1, int** arg2) {
     int* var1[5];
 
@@ -580,8 +578,6 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D5A4);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D70C);
 
-extern void func_80027468();                                  /* extern */
-
 int func_8004D740(void) {
     func_80027468();
     return 1;
@@ -595,9 +591,18 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D83C);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D8A8);
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D8DC);
-
-extern int func_80033334(int* arg);                               /* extern */
+int func_8004D8DC(int* _possiblythis, int* arg2) {
+    
+    if (arg2[1] == 0xFFFF) {
+        ((char*)gpGameState8)[0x4C60] = 1;
+    } else if (arg2[1] == 0xFFFE) {
+        func_800331DC();
+        ((char*)gpGameState8)[0x4C60] = 0;
+    } else {
+        func_80050980(arg2[1]);
+    }
+    return 1;
+}
 
 int func_8004D944(int* arg0, int* arg1) {
     (int)arg0 = arg1[1];
@@ -647,15 +652,12 @@ INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004DE08);
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E21C);
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004E2D8);
-extern int func_80052944(int arg0);                               /* extern */
 
 int func_8004E318(int* arg1, int* arg2) {
     (int)arg1 = arg2[1];
     func_80052944((int)arg1);
     return 1;
 }
-
-extern int func_8005294C(int arg0);                               /* extern */
 
 int func_8004E33C(int* arg1, int* arg2) {
     (int)arg1 = arg2[1];
@@ -669,15 +671,11 @@ int func_8004E360(int arg1, int* arg2) {
     return 1;
 }
 
-extern int func_80052AA8(int* arg0);                               /* extern */
-
 int func_8004E384(int* arg1, int* arg2) {
     (int)arg1 = arg2[1];
     func_80052AA8((int*)arg1);
     return 1;
 }
-
-extern void func_80052954();                                  /* extern */
 
 int func_8004E3A8(void) {
     func_80052954();
@@ -688,8 +686,6 @@ int func_8004E3C8(void) {
     func_80052F58();
     return 1;
 }
-
-extern void func_80052F7C();                                  /* extern */
 
 int func_8004E3E8(void) {
     func_80052F7C();
@@ -771,9 +767,6 @@ int func_8004E920(int* arg1, int **arg2) {
     return 1;
 }
 
-extern void func_8002AE40();                                  /* extern */
-extern void func_8015E228();                                  /* extern */
-
 int func_8004E95C(int* arg1, int* arg2) {
     int temp_v1 = arg2[1];
     
@@ -793,7 +786,7 @@ int func_8004E9A8(int* arg1, int* arg2) {
     return 1;
 }
 
-extern int D_8015EE28; /* extern */
+extern int D_8015EE28;
 
 int func_8004E9BC(int* arg1, int* arg2) {
     int var1 = arg2[1];

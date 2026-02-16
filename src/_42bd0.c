@@ -116,7 +116,10 @@ INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047904);
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_800479AC);
 
-INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047D10);
+int func_80047D10(short* arg0)
+{
+    return arg0[3] & 0x69;
+}
 
 extern int D_800785CC[];
 extern char D_8007E720[8]; // "fpower__"

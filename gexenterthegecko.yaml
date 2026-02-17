@@ -457,8 +457,8 @@ segments:
     exclusive_ram_id: level_code
     bss_size: 0x7F9A0
     subsegments:
-      - [0xEADF0, asm, spy_code]
-      - [0xEC440, rodata, spy_code]
+      - [0xEADF0, c, spy_code]
+      - [0xEC440, .rodata, spy_code]
       - { type: bss, 0x8015AE60 }
 
   - name: logo_code

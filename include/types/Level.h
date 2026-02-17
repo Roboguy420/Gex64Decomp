@@ -8,7 +8,7 @@ typedef struct
     int _14;
     int _18;
     int _1C;
-    short _20[8];
+    int _20[4];
     short _30[8];
     short _40[7];
     char _4E;

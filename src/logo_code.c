@@ -1,11 +1,15 @@
 #include "common.h"
 #include "types/GameState.h"
+#include "ultra64/gbi.h"
 
 void func_80159720_EC530(int* arg0, int** arg1)
 {
     arg0[0x10/4] |= 0xC00;
     arg1[0xC/4][0x10/4] |= 0x800;
 }
+extern Gfx D_8006D578[];
+extern char D_8014F34C;
+extern Gfx* D_80157050;
 
 extern int D_8006FA54;
 extern char D_80078171;
@@ -13,12 +17,16 @@ extern int D_800B83C8;
 extern int D_800E5CD4;
 extern short D_800E5DB0;
 extern int D_800E97CC;
-extern char D_8014F34C;
 extern char D_8014F354;
 extern int D_80153A58;
 extern int D_80156BDC;
 extern int D_80157034;
 extern int D_801574FC;
+extern char D_8006CF20;
+extern short* D_8006CFA0;
+extern unsigned short D_800E5DB2;
+
+extern int D_8015A0A4_ECEB4;
 
 void func_8015974C_EC55C(void) {
 
@@ -89,9 +97,6 @@ void func_8015974C_EC55C(void) {
     }
 }
 
-extern char D_8006CF20;
-extern int D_8006FA54;
-
 void func_801599A8_EC7B8(short* arg0, short** arg1) {
     D_8006CF20 = 0;
     D_8006FA54 = 0xD;
@@ -108,9 +113,6 @@ void func_801599A8_EC7B8(short* arg0, short** arg1) {
 }
 
 INCLUDE_RODATA("asm/nonmatchings/logo_code", D_8015A0A4_ECEB4);
-
-extern unsigned short D_800E5DB2;
-extern int D_8015A0A4_ECEB4;
 
 void func_80159A3C_EC84C(int* arg0, int** arg1) {
     func_8002C1AC(0);
@@ -159,7 +161,6 @@ void func_80159B68_EC978(short* arg0, short** arg1)
 void func_80159BA0_EC9B0(void) {
 }
 
-extern short* D_8006CFA0;
 void func_80159BA8_EC9B8(short* arg0, short** arg1)
 {
     ((int*)arg0)[0x104/4] = 0;
@@ -189,27 +190,62 @@ void func_80159C68_ECA78(int* arg0)
     }
 }
 
-extern int D_8006D578;
-extern int* D_80157050;
-
 void func_80159CC8_ECAD8(void) {
-    int* temp;
 
-    temp = D_80157050;
-    D_80157050 += 2;
-    temp[0] = 0x06000000;
-    temp[1] = (int)&D_8006D578;
+    gSPDisplayList(D_80157050++, D_8006D578);
+
     func_80030DD8("THERE IS NO CONTROLLER", 0x44, 0x46, 1);
     func_80030DD8("CONNECTED IN CONTROLLER", 0x3E, 0x64, 1);
     func_80030DD8("SOCKET ONE. SHUT OFF", 0x48, 0x82, 1);
     func_80030DD8("POWER, INSERT A", 0x55, 0xA0, 1);
     func_80030DD8("CONTROLLER AND RESTART", 0x3D, 0xBE, 1);
-    temp = D_80157050;
-    D_80157050 += 2;
-    temp[0] = 0xE7000000;
-    temp[1] = 0;
+
+    gDPPipeSync(D_80157050++);
 }
 
-INCLUDE_ASM("asm/nonmatchings/logo_code", func_80159DA0_ECBB0);
+void func_80159DA0_ECBB0(void) {
 
-INCLUDE_ASM("asm/nonmatchings/logo_code", func_80159EF0_ECD00);
+    gSPDisplayList(D_80157050++, D_8006D578);
+
+    func_80030DD8("GEX]: ENTER THE GECKO", 0x46, 0x32, 1);
+    func_80030DD8("[1998 CRYSTAL DYNAMICS.", 0x3C, 0x46, 1);
+    func_80030DD8("CRYSTAL DYNAMICS, THE CRYSTAL", 0x26, 0x64, 1);
+    func_80030DD8("DYNAMICS LOGO, GEX AND THE", 0x32, 0x78, 1);
+    func_80030DD8("GEX CHARACTER ARE TRADEMARKS", 0x21, 0x8C, 1);
+    func_80030DD8("OF CRYSTAL DYNAMICS.", 0x46, 0xA0, 1);
+    func_80030DD8("ALL RIGHTS RESERVED.", 0x4B, 0xB4, 1);
+    func_80030DD8("LICENSED BY NINTENDO", 0x50, 0xD2, 1);
+
+    gDPPipeSync(D_80157050++);
+    
+    if (D_8014F34C > 60) {
+        func_80040170(0x1C);
+        return;
+    }
+
+    D_8014F34C++;
+}
+
+void func_80159EF0_ECD00(int arg0) {
+
+    gSPDisplayList(D_80157050++, D_8006D578);
+
+    func_80030DD8("PUBLISHED BY", 0x6E, 0x28, 1);
+    func_80030DD8("MIDWAY HOME ENTERTAINMENT INC.", 0x21, 0x3C, 1);
+    func_80030DD8("MIDWAY IS A TRADEMARK", 0x46, 0x5A, 1);
+    func_80030DD8("OF MIDWAY GAMES INC.", 0x4B, 0x6E, 1);
+    func_80030DD8("DISTRIBUTED BY MIDWAY HOME", 0x37, 0x82, 1);
+    func_80030DD8("ENTERTAINMENT INC.", 0x55, 0x96, 1);
+    func_80030DD8("UNDER LICENSE", 0x66, 0xAA, 1);
+    func_80030DD8("N64 DEVELOPMENT BY", 0x50, 0xC8, 1);
+    func_80030DD8("REALTIME ASSOCIATES INC.", 0x41, 0xDC, 1);
+
+    gDPPipeSync(D_80157050++);
+
+    if (D_8014F34C > 60) {
+        func_800396E0(0, "logo4", arg0);
+        return;
+    }
+    
+    D_8014F34C += 1;
+}

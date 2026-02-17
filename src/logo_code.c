@@ -27,7 +27,7 @@ extern unsigned short D_800E5DB2;
 
 void func_80159720_EC530(Level_t* level, int** arg1)
 {
-    level->_10 |= 0xC00;
+    level->flags |= 0xC00;
     arg1[0xC/4][0x10/4] |= 0x800;
 }
 
@@ -124,7 +124,7 @@ void func_801599A8_EC7B8(Level_t* level, short** arg1)
     D_8006CF20 = 0;
     D_8006FA54 = 0xD;
     level->_104 = 0;
-    level->_10 |= 0x400;
+    level->flags |= 0x400;
     func_8002C1AC(0);
     arg1[0x8/4][0x30/2] = 0xFA0;
     level->_60[0] = 0x3FE;
@@ -157,7 +157,7 @@ void func_80159AE4_EC8F4(Level_t* level)
 {
     level->_60[2] = 0xC8;
     level->_104 = 0x50;
-    level->_10 |= 0x400;
+    level->flags |= 0x400;
 }
 
 FORCE_INLINE void func_80159B04_EC914_dec(int* a)
@@ -191,7 +191,7 @@ void func_80159BA0_EC9B0() { }
 void func_80159BA8_EC9B8(Level_t* level, short** arg1)
 {
     level->_104 = 0;
-    level->_10 |= 0x400;
+    level->flags |= 0x400;
     func_8002C1AC(0);
     level->_60[0] = 0x400;
     level->_60[1] = 0x6D6;

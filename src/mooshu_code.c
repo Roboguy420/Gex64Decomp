@@ -86,7 +86,7 @@ INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C2E0_C4C60);
 
 void func_8015C3CC_C4D4C(Level_t* level)
 {
-    level->_10 |= 0x400;
+    level->flags |= 0x400;
 }
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C3E0_C4D60);
@@ -142,7 +142,7 @@ INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015DC2C_C65AC);
 
 void func_8015DC84_C6604(Level_t* level)
 {
-    level->_10 |= 0x400;
+    level->flags |= 0x400;
 }
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015DC98_C6618);

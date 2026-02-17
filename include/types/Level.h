@@ -4,7 +4,7 @@
 typedef struct
 {
     int _00[4];
-    int _10;
+    int flags;
     int _14;
     int _18;
     int _1C;

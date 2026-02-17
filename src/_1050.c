@@ -83,7 +83,10 @@ INCLUDE_ASM("asm/nonmatchings/_1050", func_80003A68);
 
 INCLUDE_ASM("asm/nonmatchings/_1050", func_80003B1C);
 
-INCLUDE_ASM("asm/nonmatchings/_1050", func_80003D4C);
+void func_80003D4C(int arg0)
+{
+    ((int**)gpGameState8)[2][0x148/4] = arg0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_1050", func_80003D68);
 

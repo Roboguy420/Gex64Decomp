@@ -468,8 +468,8 @@ segments:
     exclusive_ram_id: level_code
     bss_size: 0x80520
     subsegments:
-      - [0xEC530, asm, _ec530]
-      - [0xECE80, rodata, _ec530]
+      - [0xEC530, c, _ec530]
+      - [0xECE80, .rodata, _ec530]
       - { type: bss, 0x8015A2E0 }
 
   - name: zlib

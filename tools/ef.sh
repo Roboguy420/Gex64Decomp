@@ -1,0 +1,1 @@
+code asm/nonmatchings/_$1/func_$2.s

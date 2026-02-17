@@ -39,4 +39,9 @@ __asm__(".include \"include/macro.inc\"\n");
 #define BOOL int
 #endif
 
+// Forces inlining of function, without generating elsewhere
+#ifndef FORCE_INLINE
+#define FORCE_INLINE extern inline
+#endif
+
 #endif

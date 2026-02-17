@@ -1,4 +1,5 @@
 #include "common.h"
+#include "types/GameState.h"
 
 void func_80159720_EC530(int* arg0, int** arg1)
 {
@@ -37,7 +38,23 @@ void func_80159AE4_EC8F4(int* arg0)
     arg0[0x10/4] |= 0x400;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159B04_EC914);
+extern unsigned short D_800E5DB2;
+extern int D_8015A0A4_ECEB4;
+
+FORCE_INLINE void func_80159B04_EC914_dec(int* a)
+{
+    (*a)--;
+}
+
+void func_80159B04_EC914(int* arg0) {
+    func_80159B04_EC914_dec(&arg0[0x104/4]);
+    
+    if ((D_800E5DB2 & 0x9000) != 0 || arg0[0x104/4] == 0)
+    {
+        func_800396E0(&D_8015A0A4_ECEB4, "logo2", gpGameState8);
+    }
+    
+}
 
 void func_80159B68_EC978(short* arg0, short** arg1)
 {
@@ -53,8 +70,6 @@ void func_80159BA0_EC9B0(void) {
 }
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159BA8_EC9B8);
-
-extern unsigned short D_800E5DB2;
 
 void func_80159C68_ECA78(int* arg0)
 {

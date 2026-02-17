@@ -1,6 +1,8 @@
 #include "common.h"
 #include "types/GameState.h"
-#include "ultra64/gbi.h"
+
+#include <PR/gbi.h>
+#include <PR/mbi.h>
 
 extern Gfx D_8006D578[];
 extern char D_8014F34C;

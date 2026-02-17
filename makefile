@@ -14,7 +14,7 @@ OBJCOPY = mips-linux-gnu-objcopy
 COMMONFLAGS = -mabi=32 -mfp32 -mgp32 -Iinclude
 ASFLAGS = -mtune=vr4300 -march=vr4300 -no-pad-sections -mips3 -G0 $(COMMONFLAGS)
 CC = tools/gcc
-CDEFINES = -DNUM_LEVELS=32
+CDEFINES = -DNUM_LEVELS=32 -DF3DEX_GBI=1 -D_LANGUAGE_C
 CFLAGS = -nostdinc -c -O2 -G0 $(CDEFINES) $(COMMONFLAGS) -Btools/
 LD = mips-linux-gnu-ld
 

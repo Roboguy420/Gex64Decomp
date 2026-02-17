@@ -8,7 +8,23 @@ void func_80159720_EC530(int* arg0, int** arg1)
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_8015974C_EC55C);
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_801599A8_EC7B8);
+extern char D_8006CF20;
+extern int D_8006FA54;
+
+void func_801599A8_EC7B8(short* arg0, short** arg1) {
+    D_8006CF20 = 0;
+    D_8006FA54 = 0xD;
+    ((int*)arg0)[0x104/4] = 0;
+    ((int*)arg0)[0x10/4] |= 0x400;
+    func_8002C1AC(0);
+    arg1[0x8/4][0x30/2] = 0xFA0;
+    arg0[0x60/2] = 0x3FE;
+    arg0[0x62/2] = 0x6E1;
+    arg0[0x64/2]= 1;
+    arg0[0x48/2] = 0x10EC;
+    arg0[0x4A/2] = 0x12C0;
+    arg0[0x4C/2] = -0x460;
+}
 
 INCLUDE_RODATA("asm/nonmatchings/_ec530", D_8015A0A4_ECEB4);
 

@@ -528,7 +528,11 @@ typedef struct
 
 extern int D_800785CC[];
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D1E8);
+int func_8004D1E8(int* arg0, int* arg2)
+{
+    D_800785CC[arg2[1]] = arg2[2];
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D208);
 

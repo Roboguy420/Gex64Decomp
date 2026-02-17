@@ -6,7 +6,7 @@ typedef unsigned int uint;
 typedef struct
 {
     int     _0000;
-    void*   _0004;
+    int*   _0004;
     char    _0008[0x4BEC];
     char    _4BF4[0x1C];
     short   _4C10;

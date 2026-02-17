@@ -17,7 +17,7 @@ void func_80159720_7FF40(Level_t* level) {
 
     // Out of bounds access?
     sp10[6] = level->_40[6] + 0x80;
-    func_8000F0B0(*(int*)gpGameState8->_0004, &sp10[0], &sp10[4], level);
+    func_8000F0B0(gpGameState8->_0004[0], &sp10[0], &sp10[4], level);
 }
 
 INCLUDE_ASM("asm/nonmatchings/aztec_code", func_801597BC_7FFDC);

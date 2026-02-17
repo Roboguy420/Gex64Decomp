@@ -234,7 +234,11 @@ void func_80047D20(int arg0, int arg1) {
     D_800785CC[arg0] = result;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047DB4);
+int func_80047DB4()
+{
+    func_8004A820();
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047DD4);
 

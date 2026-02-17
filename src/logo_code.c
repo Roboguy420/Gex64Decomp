@@ -2,11 +2,6 @@
 #include "types/GameState.h"
 #include "ultra64/gbi.h"
 
-void func_80159720_EC530(int* arg0, int** arg1)
-{
-    arg0[0x10/4] |= 0xC00;
-    arg1[0xC/4][0x10/4] |= 0x800;
-}
 extern Gfx D_8006D578[];
 extern char D_8014F34C;
 extern Gfx* D_80157050;
@@ -27,6 +22,12 @@ extern short* D_8006CFA0;
 extern unsigned short D_800E5DB2;
 
 extern int D_8015A0A4_ECEB4;
+
+void func_80159720_EC530(int* arg0, int** arg1)
+{
+    arg0[0x10/4] |= 0xC00;
+    arg1[0xC/4][0x10/4] |= 0x800;
+}
 
 void func_8015974C_EC55C()
 {

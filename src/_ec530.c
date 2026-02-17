@@ -109,7 +109,26 @@ void func_80159C68_ECA78(int* arg0)
     }
 }
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159CC8_ECAD8);
+extern int D_8006D578;
+extern int* D_80157050;
+
+void func_80159CC8_ECAD8(void) {
+    int* temp;
+
+    temp = D_80157050;
+    D_80157050 += 2;
+    temp[0] = 0x06000000;
+    temp[1] = (int)&D_8006D578;
+    func_80030DD8("THERE IS NO CONTROLLER", 0x44, 0x46, 1);
+    func_80030DD8("CONNECTED IN CONTROLLER", 0x3E, 0x64, 1);
+    func_80030DD8("SOCKET ONE. SHUT OFF", 0x48, 0x82, 1);
+    func_80030DD8("POWER, INSERT A", 0x55, 0xA0, 1);
+    func_80030DD8("CONTROLLER AND RESTART", 0x3D, 0xBE, 1);
+    temp = D_80157050;
+    D_80157050 += 2;
+    temp[0] = 0xE7000000;
+    temp[1] = 0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159DA0_ECBB0);
 

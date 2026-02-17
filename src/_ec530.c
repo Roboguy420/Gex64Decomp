@@ -38,7 +38,18 @@ void func_80159BA0_EC9B0(void) {
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159BA8_EC9B8);
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159C68_ECA78);
+extern unsigned short D_800E5DB2;
+
+void func_80159C68_ECA78(int* arg0)
+{
+    if (arg0[0x104/4] < 0x50) {
+        arg0[0x104/4]++;
+    }
+    
+    if ((D_800E5DB2 & 0x9000) || (arg0[0x104/4] == 0x50)) {
+        func_8001A790();
+    }
+}
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159CC8_ECAD8);
 

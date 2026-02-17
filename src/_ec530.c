@@ -1,6 +1,10 @@
 #include "common.h"
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159720_EC530);
+void func_80159720_EC530(int* arg0, int** arg1)
+{
+    arg0[0x10/4] |= 0xC00;
+    arg1[0xC/4][0x10/4] |= 0x800;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_8015974C_EC55C);
 
@@ -14,7 +18,7 @@ void func_800159AE4_EC8F4(int* arg0)
 {
     ((short*)arg0)[0x64/2] = 0xC8;
     arg0[0x104/4] = 0x50;
-    arg0[0x10/4] = arg0[0x10/4] | 0x400;
+    arg0[0x10/4] |= 0x400;
 }
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159B04_EC914);

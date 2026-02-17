@@ -127,7 +127,10 @@ INCLUDE_ASM("asm/nonmatchings/_1050", func_800056B8);
 
 INCLUDE_ASM("asm/nonmatchings/_1050", func_80005864);
 
-INCLUDE_ASM("asm/nonmatchings/_1050", func_800058E4);
+void func_800058E4(int* arg0, int* arg1)
+{
+    func_8000F0B0(((int**)gpGameState8)[1][0], arg0, arg1, 0);
+}
 
 INCLUDE_ASM("asm/nonmatchings/_1050", func_80005920);
 
@@ -149,9 +152,9 @@ void func_800064A0(int* arg0)
     arg0[0x1FC/4] = arg0[0x3A0/4];
 }
 
-void func_800064D0()
+void func_800064D0(int* arg0, int* arg1)
 {
-    func_800058E4();
+    func_800058E4(arg0, arg1);
 }
 
 INCLUDE_ASM("asm/nonmatchings/_1050", func_800064F0);

@@ -240,7 +240,11 @@ int func_80047DB4()
     return 1;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047DD4);
+int func_80047DD4()
+{
+    func_8004A7B8();
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80047DF4);
 

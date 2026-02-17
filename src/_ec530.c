@@ -7,7 +7,87 @@ void func_80159720_EC530(int* arg0, int** arg1)
     arg1[0xC/4][0x10/4] |= 0x800;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_8015974C_EC55C);
+extern int D_8006FA54;
+extern char D_80078171;
+extern int D_800B83C8;
+extern int D_800E5CD4;
+extern short D_800E5DB0;
+extern int D_800E97CC;
+extern char D_8014F34C;
+extern char D_8014F354;
+extern int D_80153A58;
+extern int D_80156BDC;
+extern int D_80157034;
+extern int D_801574FC;
+
+void func_8015974C_EC55C(void) {
+
+    func_8002C1AC(0);
+    switch (D_8006FA54-1) {
+    case 0:
+        D_8006FA54 = 2;
+        func_800576F0(&D_80153A58, 1, 0);
+    break;
+    case 2:
+        if (D_80156BDC != 0) {
+            func_80040170(0xA);
+            D_8006FA54 = 0xC;
+            return;
+        }
+        D_80078171 = 1;
+        D_8006FA54 = 8;
+        func_800576F0(&D_80153A58, 3, 0);
+        return;
+    case 8:
+        D_8006FA54 = 4;
+        func_800576F0(&D_80153A58, 2, 0);
+        return;
+    case 4:
+        if (D_80156BDC != 0) {
+            func_80040170(0xA);
+            D_8006FA54 = 0xC;
+            return;
+        }
+        if (D_800E5DB0 & 0x1000) {
+            if (D_800E97CC != 0) {
+                D_800E5CD4 = 0;
+                D_8006FA54 = 6;
+                return;
+            }
+            func_80040170(0xC);
+            D_8006FA54 = 0xC;
+            return;
+        }
+        if ((D_800B83C8 < 0x100) || (D_800E97CC >= 0x10)) {
+            D_8014F354 = 0;
+            func_80040170(0x14);
+        } else {
+            D_8006FA54 = 0xD;
+            return;
+        }
+        break;
+    case 5:
+        if ((D_80156BDC != 0) && (D_80156BDC != 5)) {
+            func_80040170(0xA);
+            D_8006FA54 = 0xC;
+            return;
+        }
+        if (D_800E5CD4 < D_80157034) {
+            D_8006FA54 = 7;
+            func_800576F0(&D_80153A58, 4, 0);
+            return;
+        }
+        D_8014F354 = 0;
+        func_80040170(0xB);
+        D_8014F34C = func_80014DD4(-1);
+        D_801574FC = D_8014F34C;
+        D_8006FA54 = 0xC;
+        return;
+        case 12:
+        func_80040170(0x12);
+        break;
+    }
+}
 
 extern char D_8006CF20;
 extern int D_8006FA54;

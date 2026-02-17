@@ -1,0 +1,1 @@
+grep -c ^ asm/nonmatchings/*/func_*.s | awk '{print $2"\t"$1}' FS=":" | sort -n > linecounts.txt

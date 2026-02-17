@@ -198,7 +198,7 @@ void func_80047904(int** arg0, int arg1, int arg2) {
     }
     else
     {
-        func_80047768(arg0, arg1, arg2, 1);
+        func_80047768((int*)arg0, arg1, arg2, 1);
     }
     
 }
@@ -274,7 +274,10 @@ INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80049224);
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80049250);
 
-INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80049330);
+void func_80049330(short* arg0)
+{
+    arg0[0xC0 / 2] = arg0[0x4C / 2];
+}
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80049340);
 

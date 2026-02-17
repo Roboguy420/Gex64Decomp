@@ -80,7 +80,10 @@ INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80046C48);
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80046CB0);
 
-INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80046CE4);
+void func_80046CE4()
+{
+    func_8002E350();
+}
 
 INCLUDE_ASM("asm/nonmatchings/_42bd0", func_80046D04);
 

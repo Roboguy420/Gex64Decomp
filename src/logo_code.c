@@ -4,6 +4,8 @@
 #include <PR/gbi.h>
 #include <PR/mbi.h>
 
+#include "types/Level.h"
+
 extern Gfx D_8006D578[];
 extern char D_8014F34C;
 extern Gfx* D_80157050;
@@ -23,9 +25,9 @@ extern char D_8006CF20;
 extern short* D_8006CFA0;
 extern unsigned short D_800E5DB2;
 
-void func_80159720_EC530(int* arg0, int** arg1)
+void func_80159720_EC530(Level_t* level, int** arg1)
 {
-    arg0[0x10/4] |= 0xC00;
+    level->_10 |= 0xC00;
     arg1[0xC/4][0x10/4] |= 0x800;
 }
 
@@ -117,45 +119,45 @@ void func_8015974C_EC55C()
     }
 }
 
-void func_801599A8_EC7B8(short* arg0, short** arg1)
+void func_801599A8_EC7B8(Level_t* level, short** arg1)
 {
     D_8006CF20 = 0;
     D_8006FA54 = 0xD;
-    ((int*)arg0)[0x104/4] = 0;
-    ((int*)arg0)[0x10/4] |= 0x400;
+    level->_104 = 0;
+    level->_10 |= 0x400;
     func_8002C1AC(0);
     arg1[0x8/4][0x30/2] = 0xFA0;
-    arg0[0x60/2] = 0x3FE;
-    arg0[0x62/2] = 0x6E1;
-    arg0[0x64/2]= 1;
-    arg0[0x48/2] = 0x10EC;
-    arg0[0x4A/2] = 0x12C0;
-    arg0[0x4C/2] = -0x460;
+    level->_60[0] = 0x3FE;
+    level->_60[1] = 0x6E1;
+    level->_60[2] = 1;
+    level->_40[4] = 0x10EC;
+    level->_40[5] = 0x12C0;
+    level->_40[6] = -0x460;
 }
 
 const char D_8015A0A4_ECEB4[] = "logo";
 
-void func_80159A3C_EC84C(int* arg0, int** arg1)
+void func_80159A3C_EC84C(Level_t* level, int** arg1)
 {
     func_8002C1AC(0);
     arg1[0xC/4][0x10/4] |= 0x800;
     
-    if (arg0[0x104/4] < 0x50)
+    if (level->_104 < 0x50)
     {
-        arg0[0x104/4]++;
+        level->_104++;
     }
 
-    if ((D_800E5DB2 & 0x9000) || (arg0[0x104/4] == 0x50))
+    if ((D_800E5DB2 & 0x9000) || (level->_104 == 0x50))
     {
         func_800396E0(&D_8015A0A4_ECEB4, "logo1", gpGameState8);
     }
 }
 
-void func_80159AE4_EC8F4(int* arg0)
+void func_80159AE4_EC8F4(Level_t* level)
 {
-    ((short*)arg0)[0x64/2] = 0xC8;
-    arg0[0x104/4] = 0x50;
-    arg0[0x10/4] |= 0x400;
+    level->_60[2] = 0xC8;
+    level->_104 = 0x50;
+    level->_10 |= 0x400;
 }
 
 FORCE_INLINE void func_80159B04_EC914_dec(int* a)
@@ -163,54 +165,54 @@ FORCE_INLINE void func_80159B04_EC914_dec(int* a)
     (*a)--;
 }
 
-void func_80159B04_EC914(int* arg0)
+void func_80159B04_EC914(Level_t* level)
 {
-    func_80159B04_EC914_dec(&arg0[0x104/4]);
+    func_80159B04_EC914_dec(&level->_104);
     
-    if ((D_800E5DB2 & 0x9000) != 0 || arg0[0x104/4] == 0)
+    if ((D_800E5DB2 & 0x9000) != 0 || level->_104 == 0)
     {
         func_800396E0(&D_8015A0A4_ECEB4, "logo2", gpGameState8);
     }
     
 }
 
-void func_80159B68_EC978(short* arg0, short** arg1)
+void func_80159B68_EC978(Level_t* level, short** arg1)
 {
-    arg0[0x60/2] = 0x802;
-    arg0[0x62/2] = -0x400;
-    arg0[0x64/2] = 0;
-    arg0[0x48/2] = arg1[0x8/4][0] + 0x32;
-    arg0[0x4A/2] = 0x64;
-    arg0[0x4C/2] = 0x64;
+    level->_60[0] = 0x802;
+    level->_60[1] = -0x400;
+    level->_60[2] = 0;
+    level->_40[4] = arg1[0x8/4][0] + 0x32;
+    level->_40[5] = 0x64;
+    level->_40[6] = 0x64;
 }
 
 void func_80159BA0_EC9B0() { }
 
-void func_80159BA8_EC9B8(short* arg0, short** arg1)
+void func_80159BA8_EC9B8(Level_t* level, short** arg1)
 {
-    ((int*)arg0)[0x104/4] = 0;
-    ((int*)arg0)[0x10/4] |= 0x400;
+    level->_104 = 0;
+    level->_10 |= 0x400;
     func_8002C1AC(0);
-    arg0[0x60/2] = 0x400;
-    arg0[0x62/2] = 0x6D6;
-    arg0[0x48/2] = 0x1306;
-    arg0[0x4A/2] = 0x1194;
-    arg0[0x64/2] = 0;
-    arg0[0x4C/2] = -0x96;
+    level->_60[0] = 0x400;
+    level->_60[1] = 0x6D6;
+    level->_40[4] = 0x1306;
+    level->_40[5] = 0x1194;
+    level->_60[2] = 0;
+    level->_40[6] = -0x96;
     arg1[0x8/4][0x4/2] += 0xE6;
     arg1[0x8/4][0x2/2] -= 0xC8;
     arg1[0x8/4][0] = D_8006CFA0[0x48/2];
-    ((char*)arg0)[0x4E] = 0;
-    arg0[0x5E/2] = 0;
+    level->_4E = 0;
+    level->_50[7] = 0;
 }
 
-void func_80159C68_ECA78(int* arg0)
+void func_80159C68_ECA78(Level_t* level)
 {
-    if (arg0[0x104/4] < 0x50) {
-        arg0[0x104/4]++;
+    if (level->_104 < 0x50) {
+        level->_104++;
     }
     
-    if ((D_800E5DB2 & 0x9000) || (arg0[0x104/4] == 0x50)) {
+    if ((D_800E5DB2 & 0x9000) || (level->_104 == 0x50)) {
         func_8001A790();
     }
 }

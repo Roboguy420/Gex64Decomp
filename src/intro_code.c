@@ -1,20 +1,22 @@
 #include "common.h"
 #include "types/GameState.h"
 
+#include "types/Level.h"
+
 extern char* D_8006CFA0;
 extern int D_8006CF60;
 extern int D_80154840;
 
 INCLUDE_ASM("asm/nonmatchings/intro_code", func_80159720_A8550);
 
-void func_801598A4_A86D4(int* arg0, int* arg1) {
+void func_801598A4_A86D4(Level_t* level, int* arg1) {
     func_8002C1AC(0);
-    arg0[0x104/4]--;
-    if (arg0[0x104/4] == 0xAF) {
+    level->_104--;
+    if (level->_104 == 0xAF) {
         D_80154840 = 0x171;
         func_80052758();
     }
-    if (arg0[0x104/4] == 0) {
+    if (level->_104 == 0) {
         ((short*)arg1)[0x9c/2] = -1;
         func_800396E0("map", "map5", gpGameState8);
         ((char*)gpGameState8)[0x4CDC] = 0;
@@ -22,94 +24,96 @@ void func_801598A4_A86D4(int* arg0, int* arg1) {
     }
 }
 
-void func_80159944_A8774(short* arg0)
+void func_80159944_A8774(Level_t* level)
 {
-    ((int*)arg0)[0x104/4] = 0xB4;
-    arg0[0x48/2] = 0x1117;
-    arg0[0x4A/2] = 0x76C;
-    arg0[0x4C/2] = 0x288;
-    arg0[0x60/2] = 0x47E;
-    arg0[0x62/2] = 0x6EA;
-    arg0[0x64/2] = 0;
+    level->_104 = 0xB4;
+    level->_40[4] = 0x1117;
+    level->_40[5] = 0x76C;
+    level->_40[6] = 0x288;
+    level->_60[0] = 0x47E;
+    level->_60[1] = 0x6EA;
+    level->_60[2] = 0;
 }
 
-void func_8015997C_A87AC(short* arg0)
+void func_8015997C_A87AC(Level_t* level)
 {
-    if (((int*)arg0)[0x104/4])
+    if (level->_104)
     {
-        ((int*)arg0)[0x104/4]--;
+        level->_104--;
         return;
     }
-
-    if (arg0[0x4C/2] >= 0x95)
+    else
     {
-        arg0[0x4C/2] -= 0x14;
+        if (level->_40[6] >= 0x95)
+        {
+            level->_40[6] -= 0x14;
+        }
+        D_8006CFA0[0x4E] = 0;
     }
-    D_8006CFA0[0x4E] = 0;
 }
 
-void func_801599CC_A87FC(short* arg0)
+void func_801599CC_A87FC(Level_t* level)
 {
-    ((int*)arg0)[0x104/4] = 0xD2;
-    arg0[0x48/2] = 0xE56;
-    arg0[0x4A/2] = 0x76C;
-    arg0[0x4C/2] = 0x55;
-    arg0[0x60/2] = 0x400;
-    arg0[0x62/2] = 0x6D6;
-    arg0[0x64/2] = 0;
+    level->_104 = 0xD2;
+    level->_40[4] = 0xE56;
+    level->_40[5] = 0x76C;
+    level->_40[6] = 0x55;
+    level->_60[0] = 0x400;
+    level->_60[1] = 0x6D6;
+    level->_60[2] = 0;
 }
 
 void func_80159A04_A8834(void) {
 }
 
-void func_80159A0C_A883C(short* arg0)
+void func_80159A0C_A883C(Level_t* level)
 {
-    ((int*)arg0)[0x104/4] = 0xD2;
-    arg0[0x48/2] = 0x13BA;
-    arg0[0x4A/2] = 0x76C;
-    arg0[0x4C/2] = 0x32;
-    arg0[0x60/2] = 0x400;
-    arg0[0x62/2] = 0x6D6;
-    arg0[0x64/2] = 0;
+    level->_104 = 0xD2;
+    level->_40[4] = 0x13BA;
+    level->_40[5] = 0x76C;
+    level->_40[6] = 0x32;
+    level->_60[0] = 0x400;
+    level->_60[1] = 0x6D6;
+    level->_60[2] = 0;
 }
 
 void func_80159A44_A8874(void) {
 }
 
-void func_80159A4C_A887C(short* arg0)
+void func_80159A4C_A887C(Level_t* level)
 {
-    ((int*)arg0)[0x104/4] = 0x12C;
-    arg0[0x48/2] = 0x157C;
-    arg0[0x4A/2] = 0x708;
-    arg0[0x4C/2] = 0x55;
-    arg0[0x60/2] = 0x4B0;
-    arg0[0x62/2] = 0x6D6;
-    arg0[0x64/2] = 0;
+    level->_104 = 0x12C;
+    level->_40[4] = 0x157C;
+    level->_40[5] = 0x708;
+    level->_40[6] = 0x55;
+    level->_60[0] = 0x4B0;
+    level->_60[1] = 0x6D6;
+    level->_60[2] = 0;
 }
 
 void func_80159A84_A88B4(void) {
 }
 
-void func_80159A8C_A88BC(short* arg0)
+void func_80159A8C_A88BC(Level_t* level)
 {
-    ((int*)arg0)[0x104/4] = 0xFA;
-    arg0[0x48/2] = 0x1770;
-    arg0[0x4A/2] = 0xC80;
-    arg0[0x4C/2] = -0x384;
-    arg0[0x60/2] = 0x4B0;
-    arg0[0x62/2] = 0x708;
-    arg0[0x64/2] = 0;
+    level->_104 = 0xFA;
+    level->_40[4] = 0x1770;
+    level->_40[5] = 0xC80;
+    level->_40[6] = -0x384;
+    level->_60[0] = 0x4B0;
+    level->_60[1] = 0x708;
+    level->_60[2] = 0;
 }
 
-void func_80159AC4_A88F4(int* arg0)
+void func_80159AC4_A88F4(Level_t* level)
 {
-    if (arg0[0x104/4])
+    if (level->_104)
     {
-        arg0[0x104/4]--;
+        level->_104--;
     }
 
-    if (arg0[0x104/4] < 0x32)
+    if (level->_104 < 0x32)
     {
-        ((short*)arg0)[0x48/2] = 0xFA0;
+        level->_40[4] = 0xFA0;
     }
 }

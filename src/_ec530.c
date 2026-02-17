@@ -69,7 +69,24 @@ void func_80159B68_EC978(short* arg0, short** arg1)
 void func_80159BA0_EC9B0(void) {
 }
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159BA8_EC9B8);
+extern short* D_8006CFA0;
+void func_80159BA8_EC9B8(short* arg0, short** arg1)
+{
+    ((int*)arg0)[0x104/4] = 0;
+    ((int*)arg0)[0x10/4] |= 0x400;
+    func_8002C1AC(0);
+    arg0[0x60/2] = 0x400;
+    arg0[0x62/2] = 0x6D6;
+    arg0[0x48/2] = 0x1306;
+    arg0[0x4A/2] = 0x1194;
+    arg0[0x64/2] = 0;
+    arg0[0x4C/2] = -0x96;
+    arg1[0x8/4][0x4/2] += 0xE6;
+    arg1[0x8/4][0x2/2] -= 0xC8;
+    arg1[0x8/4][0] = D_8006CFA0[0x48/2];
+    ((char*)arg0)[0x4E] = 0;
+    arg0[0x5E/2] = 0;
+}
 
 void func_80159C68_ECA78(int* arg0)
 {

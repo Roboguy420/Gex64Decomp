@@ -27,7 +27,10 @@ INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015A258_C2BD8);
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015A2E0_C2C60);
 
-INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015A398_C2D18);
+void func_8015A398_C2D18()
+{
+    volatile char _[0x40];
+}
 
 INCLUDE_RODATA("asm/nonmatchings/mooshu_code", D_8015DDE0_C6760);
 
@@ -79,7 +82,10 @@ INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015BDB4_C4734);
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C2E0_C4C60);
 
-INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C3CC_C4D4C);
+void func_8015C3CC_C4D4C(int* arg0)
+{
+    arg0[0x10/4] |= 0x400;
+}
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C3E0_C4D60);
 
@@ -87,13 +93,19 @@ INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C5D0_C4F50);
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C6D0_C5050);
 
-INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C708_C5088);
+void func_8015C708_C5088(int* arg0)
+{
+    arg0[0xFC/4] = 0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C710_C5090);
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C780_C5100);
 
-INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C820_C51A0);
+void func_8015C820_C51A0(int* arg0)
+{
+    arg0[0xE4/4] = -0x10;
+}
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015C82C_C51AC);
 
@@ -113,7 +125,10 @@ INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015D544_C5EC4);
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015D6B0_C6030);
 
-INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015D7B4_C6134);
+void func_8015D7B4_C6134(short* arg0)
+{
+    arg0[0xFC/2]++;
+}
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015D7C8_C6148);
 
@@ -123,6 +138,9 @@ INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015DBB0_C6530);
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015DC2C_C65AC);
 
-INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015DC84_C6604);
+void func_8015DC84_C6604(int* arg0)
+{
+    arg0[0x10/4] |= 0x400;
+}
 
 INCLUDE_ASM("asm/nonmatchings/mooshu_code", func_8015DC98_C6618);

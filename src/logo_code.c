@@ -107,7 +107,7 @@ void func_801599A8_EC7B8(short* arg0, short** arg1) {
     arg0[0x4C/2] = -0x460;
 }
 
-INCLUDE_RODATA("asm/nonmatchings/_ec530", D_8015A0A4_ECEB4);
+INCLUDE_RODATA("asm/nonmatchings/logo_code", D_8015A0A4_ECEB4);
 
 extern unsigned short D_800E5DB2;
 extern int D_8015A0A4_ECEB4;
@@ -210,6 +210,6 @@ void func_80159CC8_ECAD8(void) {
     temp[1] = 0;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159DA0_ECBB0);
+INCLUDE_ASM("asm/nonmatchings/logo_code", func_80159DA0_ECBB0);
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159EF0_ECD00);
+INCLUDE_ASM("asm/nonmatchings/logo_code", func_80159EF0_ECD00);

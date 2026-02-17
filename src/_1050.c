@@ -134,7 +134,11 @@ INCLUDE_ASM("asm/nonmatchings/_1050", func_800060D0);
 
 INCLUDE_ASM("asm/nonmatchings/_1050", func_80006374);
 
-INCLUDE_ASM("asm/nonmatchings/_1050", func_800064A0);
+void func_800064A0(int* arg0)
+{
+    func_80003234();
+    arg0[0x1FC/4] = arg0[0x3A0/4];
+}
 
 void func_800064D0()
 {

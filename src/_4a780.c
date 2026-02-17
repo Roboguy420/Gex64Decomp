@@ -495,7 +495,11 @@ int func_8004D128(int* arg0) {
     return 1;
 }
 
-INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D144);
+int func_8004D144(int* arg0, int* arg1)
+{
+    ((int*)gpGameState8)[0x4C14/4] = arg1[1];
+    return 1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_4a780", func_8004D160);
 

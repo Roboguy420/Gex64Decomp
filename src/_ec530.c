@@ -14,7 +14,7 @@ INCLUDE_RODATA("asm/nonmatchings/_ec530", D_8015A0A4_ECEB4);
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159A3C_EC84C);
 
-void func_800159AE4_EC8F4(int* arg0)
+void func_80159AE4_EC8F4(int* arg0)
 {
     ((short*)arg0)[0x64/2] = 0xC8;
     arg0[0x104/4] = 0x50;
@@ -23,7 +23,15 @@ void func_800159AE4_EC8F4(int* arg0)
 
 INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159B04_EC914);
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159B68_EC978);
+void func_80159B68_EC978(short* arg0, short** arg1)
+{
+    arg0[0x60/2] = 0x802;
+    arg0[0x62/2] = -0x400;
+    arg0[0x64/2] = 0;
+    arg0[0x48/2] = arg1[0x8/4][0] + 0x32;
+    arg0[0x4A/2] = 0x64;
+    arg0[0x4C/2] = 0x64;
+}
 
 void func_80159BA0_EC9B0(void) {
 }

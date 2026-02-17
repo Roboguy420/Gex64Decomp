@@ -1,1 +1,1 @@
-code asm/nonmatchings/_$1/$2.s
+code asm/nonmatchings/$1/$2.s

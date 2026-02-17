@@ -37,7 +37,23 @@ INCLUDE_ASM("asm/nonmatchings/_1050", func_80001408);
 
 INCLUDE_ASM("asm/nonmatchings/_1050", func_800018F0);
 
-INCLUDE_ASM("asm/nonmatchings/_1050", func_80001DF4);
+void func_80001DF4(short arg0)
+{
+    short* ptr = ((short**)gpGameState8)[0x8/4];
+    ptr[0x180/2] = arg0;
+    ptr[0x34/2] = arg0;
+    ptr[0x3C/2] = arg0;
+    ptr[0xC/2] = arg0;
+    ptr[0x1C/2] = arg0;
+    ptr[0x198/2] = arg0;
+
+    ptr[0x1A8/2] = 0;
+    ptr[0x1A0/2] = 0;
+    ptr[0x2C4/2] = 0;
+    ptr[0x2BC/2] = 0;
+    ptr[0x268/2] = 0;
+    ptr[0x260/2] = 0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/_1050", func_80001E3C);
 

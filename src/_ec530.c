@@ -29,7 +29,20 @@ void func_801599A8_EC7B8(short* arg0, short** arg1) {
 
 INCLUDE_RODATA("asm/nonmatchings/_ec530", D_8015A0A4_ECEB4);
 
-INCLUDE_ASM("asm/nonmatchings/_ec530", func_80159A3C_EC84C);
+extern unsigned short D_800E5DB2;
+extern int D_8015A0A4_ECEB4;
+
+void func_80159A3C_EC84C(int* arg0, int** arg1) {
+    func_8002C1AC(0);
+    arg1[0xC/4][0x10/4] |= 0x800;
+    
+    if (arg0[0x104/4] < 0x50) {
+        arg0[0x104/4]++;
+    }
+    if ((D_800E5DB2 & 0x9000) || (arg0[0x104/4] == 0x50)) {
+        func_800396E0(&D_8015A0A4_ECEB4, "logo1", gpGameState8);
+    }
+}
 
 void func_80159AE4_EC8F4(int* arg0)
 {
@@ -37,9 +50,6 @@ void func_80159AE4_EC8F4(int* arg0)
     arg0[0x104/4] = 0x50;
     arg0[0x10/4] |= 0x400;
 }
-
-extern unsigned short D_800E5DB2;
-extern int D_8015A0A4_ECEB4;
 
 FORCE_INLINE void func_80159B04_EC914_dec(int* a)
 {

@@ -21,8 +21,6 @@ extern char D_8006CF20;
 extern short* D_8006CFA0;
 extern unsigned short D_800E5DB2;
 
-extern int D_8015A0A4_ECEB4;
-
 void func_80159720_EC530(int* arg0, int** arg1)
 {
     arg0[0x10/4] |= 0xC00;
@@ -133,7 +131,7 @@ void func_801599A8_EC7B8(short* arg0, short** arg1)
     arg0[0x4C/2] = -0x460;
 }
 
-INCLUDE_RODATA("asm/nonmatchings/logo_code", D_8015A0A4_ECEB4);
+const char D_8015A0A4_ECEB4[] = "logo";
 
 void func_80159A3C_EC84C(int* arg0, int** arg1)
 {

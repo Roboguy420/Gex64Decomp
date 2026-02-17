@@ -135,8 +135,6 @@ void func_801599A8_EC7B8(Level_t* level, short** arg1)
     level->_40[6] = -0x460;
 }
 
-const char D_8015A0A4_ECEB4[] = "logo";
-
 void func_80159A3C_EC84C(Level_t* level, int** arg1)
 {
     func_8002C1AC(0);
@@ -149,7 +147,7 @@ void func_80159A3C_EC84C(Level_t* level, int** arg1)
 
     if ((D_800E5DB2 & 0x9000) || (level->_104 == 0x50))
     {
-        func_800396E0(&D_8015A0A4_ECEB4, "logo1", gpGameState8);
+        func_800396E0("logo", "logo1", gpGameState8);
     }
 }
 
@@ -171,7 +169,7 @@ void func_80159B04_EC914(Level_t* level)
     
     if ((D_800E5DB2 & 0x9000) != 0 || level->_104 == 0)
     {
-        func_800396E0(&D_8015A0A4_ECEB4, "logo2", gpGameState8);
+        func_800396E0("logo", "logo2", gpGameState8);
     }
     
 }

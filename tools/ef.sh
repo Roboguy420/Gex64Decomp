@@ -1,1 +1,1 @@
-code asm/nonmatchings/_$1/func_$2.s
+code asm/nonmatchings/_$1/$2.s
